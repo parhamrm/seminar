@@ -1,0 +1,44 @@
+{
+    "files.autoSave": "off",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "doc"
+            ],
+            "env": {}
+        },
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "tools": [
+                "bibtex"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+            ]
+        }
+    ],
+    // "editor.fontSize": 16
+}
