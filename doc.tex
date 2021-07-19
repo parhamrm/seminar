@@ -868,6 +868,7 @@ forked edges,
             ]
             [GRU\footnote{Gated Recurrent Unit}
                 [\cite{tang-etal-2015-document}]
+                [\cite{72Zhang_Zhang_Vo_2016}]
             ]
             [LSTM\footnote{Long Short Term Memory}
                 [\cite{tang-etal-2015-document}]
@@ -877,6 +878,8 @@ forked edges,
                 [\cite{wang-etal-2016-combination}]
                 [\cite{guggilla-etal-2016-cnn}]
                 [\cite{teng-etal-2016-context}]
+                [\cite{70tang-etal-2016-effective}]
+                [\cite{71ruder-etal-2016-hierarchical}]
             ]
             [MemNN\footnote{Memory Network}
                 [\cite{ijcai2017-311}]
@@ -908,11 +911,8 @@ forked edges,
                         [\cite{wang-etal-2016-dimensional}]
                     ]
             ]]]]
-            [,[,[,[,[,[,[Aspect Level, calign=last
-                            
+            [,[,[,[,[,[,[Aspect Level, calign=last         
                             [LSTM
-                                [\cite{70tang-etal-2016-effective}]
-                                [\cite{71ruder-etal-2016-hierarchical}]
                                 [\cite{73wang-etal-2016-attention}]
                                 [\cite{74YANGATT}]
                                 [\cite{75liu-zhang-2017-attention}]
@@ -921,7 +921,6 @@ forked edges,
                                 [\cite{80chen-etal-2017-recurrent}]
                             ]
                             [GRU
-                                [\cite{72Zhang_Zhang_Vo_2016}]
                             ]
                             [MemNN
                                 [\cite{76tang2016aspect}]
@@ -1095,6 +1094,109 @@ AdaRNN
 متون را با وابستگی به هدف مورد بررسی قرار داد. این مدل با یادگیری آن که کلمه یا کلمات حاوی اطلاعات مهم را با
 ربط دادن به کلمه‌ی هدف استخراج کند، متون را از دید ساختاری بررسی می‌کند.
 
+شبکه
+LSTM
+می‌تواند ارتباطات معنایی بین کلمه‌ یا کلمات هدف و جملات را به دست آورد. در
+\cite{70tang-etal-2016-effective}
+با استفاده از این ویژگی
+LSTM
+دو شبکه
+TD-LSTM\footnote{\lr{Target-Dependent LSTM}}
+و
+TC-LSTM\footnote{\lr{Target-connection LSTM}}
+ارائه شد. برای این کار کلمه‌ی هدف را به عنوان یک ویژگی به شبکه‌های ایجاد شده اضافه کردند.
+شبکه‌های
+LSTM
+قادر به درک ارتباطات معنایی درون ساختاری هستند و در فهم و پردازش ارتباطات بین جملات به خوبی عمل نمی‌کنند.
+به عنوان مثال این شبکه‌ها می‌توانند پیش‌زمینه جمله را درک کنند، در جملات کیفیت غذای این رستوران بسیار بالاست.
+من عاشق این رستوران هستم. کیفیت غذا پیش‌زمینه‌ی جمله‌ی مثبت بعدی است. اما پیچیدگی کنار هم
+قرار گرفتن جملات مفهومی نیست که به راحتی درک شود.
+
+در
+\cite{71ruder-etal-2016-hierarchical}
+مقاله با استفاده از یک شبکه حافظه بلند کوتاه مدت سلسله مراتبی دو طرفه\footnote{\lr{Hierarchical bidirectional long short-term memory}}
+به شناخت و درک هر دو نوع ارتباط گفته شده پرداخته شده‌است. به دلیل وجود وابستگی مدل تنها به جمله و
+ساختار آن، این شبکه را قادر به انجام پیشبینی در زبان‌های مختلف می‌سازد.
+
+این مدل از ۳ بخش مختلف تشکیل شده‌است. بخش اول تبدیل به نمایش برداری است. هر نظری کاربران در سطح شبکه‌های
+اجتماعی یا دیگر سکوهای\footnote{Platforms}
+موجود ارسال می‌کنند از چند جمله تشکیل شده‌است. این جملات با استفاده از لایه گذاری\footnote{Padding}
+به طول یکسان تبدیل می‌شوند. سپس هر جمله تبدیل به نمایشی از مجموعه بردارهای کلمات تشکیل دهنده آن می‌شود.
+سپس هر کدام از جملات با کلمه‌ی مورد نظر و ویژگی آن (به عنوان مثال غذا\#کیفیت)
+ترکیب می‌شود. به این شکل که از این دو کلمه میانگین گرفته می‌شود و به بردار اضافه می‌شود.
+
+بخش بعدی شبکه‌ی
+LSTM
+است که امکان یادگیری وابستگی‌های جملات را دارد. دو شبکه‌ در ساختار وجود دارند که یکی از آن‌ها
+رو به جلو است و دیگری رو به عقب.
+
+بخش بعدی شامل دو شبکه‌ی
+LSTM
+دیگر است که به مانند قسمت قبل یکی رو به جلو است و دیگری رو به عقب. این دو شبکه از خروجی بخش قبلی
+استفاده می‌کنند و جملات را به طور کلی و در سطح متن بررسی می‌کنند.
+
+\begin{table}[h]
+    \begin{small}
+    \begin{center}
+      \begin{latin}
+      \begin{tabular}{|l|l|l|l|l|l|}
+        \hline
+        Language & Domain & Best & LSTM & H-LSTM &  HP-LSTM \\
+        \hline
+        English & Restaurants & 88.1 & 81.4 & 83.0 & 85.3 \\
+        \hline
+        Spanish & Restaurants & 83.6 & 75.7 & 79.5 & 81.8 \\
+        \hline
+        French & Restaurants & 78.8 & 69.8 & 73.6 & 75.4 \\
+        \hline
+        Russian & Restaurants & 77.9 & 73.9 & 78.1 & 77.4 \\
+        \hline
+        Dutch & Restaurants & 77.8 & 73.6 & 82.2 & 84.8 \\
+        \hline
+        Turkish & Restaurants & 84.3 & 73.6 & 76.7 & 79.2 \\
+        \hline
+        Arabic & Hotels & 82.7 & 80.5 & 82.8 & 82.9 \\
+        \hline
+        English & Laptops & 82.8 & 76.0 & 77.4 & 80.1 \\
+        \hline
+        Dutch & Phones & 83.3 & 81.8 & 81.3 & 83.6 \\
+        \hline
+        Chinese & Cameras & 80.5 & 77.6 & 78.6 & 78.8 \\
+        \hline
+        Chinese & Phones & 73.3 & 70.3 & 74.1 & 73.3 \\
+        \hline
+      \end{tabular}
+      \end{latin}
+      \caption{مقایسه عملکرد مدل معرفی شده با شبکه‌های دیگر}
+      \label{tab:H-LSTM}
+    \end{center}
+\end{small}
+  \end{table}
+
+در همین راستا در
+\cite{72Zhang_Zhang_Vo_2016}
+شبکه‌ای در سطح جمله ارائه شد که هدف آن رفع مشکل و ضعف استفاده از
+pooling
+است. برای این کار از دو
+GRU\footnote{\lr{Gated Recurrent Uunit}}
+استفاده شده‌است. در ابتدا یک
+GRU
+دو طرفه\footnote{\lr{Bidirectional Gated Recurrent Uunit}}
+ایجاد شده که هدف آن پردازش کلمات متن است تا
+pooling
+به جای آن که مستقیم بر کلمات تاثیر بگذارد به خروجی این لایه اعمال شود. سپس از یک
+GRU
+سه طرفه استفاده شده تا ارتباطات میان کلمه‌ی هدف و کلمات اطراف آن را درک کند.
+این شبکه سه طرفه برا آن اضافه شده‌است تا بتواند ارتباطات معنایی و ساختاری متون را مدل سازی کند.
+این مقاله نشان داد که استفاده از
+GRU
+سبب کم شدن جانب‌داری\footnote{bias}
+در تصمیم گیری‌های مدل می‌شود.
+
+\paragraph{ATAE-LSTM} \hfill \break
+
+همانطور که گفته شد شبکه‌های
+RNN\footnote{\lr{Recurrent Neural Networks}}
 
 
 \subsubsection{CharSCNN و طول متن}
