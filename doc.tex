@@ -683,334 +683,7 @@ cross-attention
     \label{fig:transformer}
 \end{figure}
 
-\subsection{شبکه‌های حافظه‌ای}
-شبکه‌های حافظه‌ای یا
-\lr{Memmory Networks}
-که به طور خلاصه
-MenNN
-نیز نوشته می‌شوند در ابتدا برای پاسخ دهی به سوالات ارائه شدند. این شبکه دارای تعدادی کامپوننت استنباطی در کنار یک
-حافظه‌ی بلند مدت بزرگ است که به عنوان منبع دانایی عمل می‌کند. وظایف کلی کامپوننت‌ها به این شکل است. کامپوننت
-I
-ورودی را به نمایش ویژگی‌ها تبدیل می‌کند. کامپوننت بعدی یعنی
-G
-بر اساس ورودی‌های دریافتی جدید حافظه را به روزرسانی می‌کند. کامپوننت
-O
-در واقع وظیفه‌ی تولید خروجی را بر عهده دارد و کامپوننت
-R
-خروجی تولید شده را به فرمت مورد نظر تبدیل می‌کند. جدول
-\ref{tab:MemNN-vs-others}
-مقایسه‌ی این مدل به دو شبکه
-RNN
-و
-LSTM
-را در دو مسئله با سختی‌های متفاوت نشان می‌دهد.
-\cite{zhang2018deep}
-
-\begin{table}[h]
-    \begin{center}
-      \begin{latin}
-      \begin{tabular}{|l||l|l|l||l|l|}
-        \hline
-         & \multicolumn{3}{c|}{Difficulty 1} & \multicolumn{2}{c|}{Difficulty 5} \\
-        \hline
-        Method & actor w/o before & actor & actor+object & actor & actor+object \\
-        \hline
-        RNN & 100\% & 60.9\% & 27.9\% & 23.8\% & 17.8\% \\
-        LSTM & 100\% & 64.8\% & 49.1\% & 35.2\% & 29.0\% \\
-        \hline
-        MemNN k= 1 & 97.8\% & 31.0\% & 24.0\% & 21.9\% & 18.5\% \\
-        MemNN k= 1 (+time) & 99.9\% & 60.2\% & 42.5\% & 60.8\% & 44.4\% \\
-        MemNN k= 2 (+time) & 100\% & 100\% & 100\% & 100\% & 99.9\% \\
-        \hline
-      \end{tabular}
-      \end{latin}
-      \caption{مقایسه عملکرد سه مدل حافظه‌ای}
-      \label{tab:MemNN-vs-others}
-    \end{center}
-  \end{table}
-
-
-\chapter{کارهای مرتبط}
-\pagebreak
-
-% طول متن برای درختواره
-
-\begin{latin}
-\begin{tiny}
-\begin{noindent}
-\begin{forest}
-for tree = { draw },
-before typesetting nodes={
-    where content={}{coordinate}{},
-},
-forked edges,
-[Text Mining,
-    [Classification,
-        [Sentiment Analysis
-            [Autoencoder
-                [\cite{zhaiEncoder}]
-            ]
-            [CNN\footnote{Convolutional Neural Network}
-                [\cite{tang-etal-2015-document}]
-                [\cite{dos2014deep}]
-            ]
-            [GRU\footnote{Gated Recurrent Unit}
-                [\cite{tang-etal-2015-document}]
-            ]
-            [LSTM\footnote{Long Short Term Memory}
-                [\cite{tang-etal-2015-document}]
-                [\cite{xu2016cached}]
-                [\cite{yin-etal-2017-document}]
-                [\cite{zhou-etal-2016-attention}]
-            ]
-            [MemNN\footnote{Memory Network}
-                [\cite{ijcai2017-311}]
-            ] 
-            [,[,[,[Sentence Level, calign=last
-                    [Autoencoder
-                        [\cite{socher-etal-2011-semi}]
-                    ]
-                    [RecNN\footnote{Recursive Neural Network}
-                        [\cite{socher-etal-2011-semi}]
-                        [\cite{socher-etal-2012-semantic}]
-                        [\cite{socher-etal-2013-recursive}]
-                        [\cite{qian-etal-2015-learning}]
-                    ]
-                    [CNN
-                        [\cite{kalchbrenner-etal-2014-convolutional}]
-                        [\cite{kim-2014-convolutional}]
-                        [\cite{wang-etal-2016-dimensional}]
-                        [\cite{wang-etal-2016-dimensional}]
-                        [\cite{guggilla-etal-2016-cnn}]
-                        [\cite{guaWeak}]
-                        [\cite{yu-jiang-2016-learning}]
-                        [\cite{mishra-etal-2017-learning}]
-                    ]
-                    [LSTM
-                        [\cite{wang-etal-2016-dimensional}]
-                        [\cite{guggilla-etal-2016-cnn}]
-                        [\cite{huaEncode}]
-                        [\cite{teng-etal-2016-context}]
-                        [\cite{qian-etal-2017-linguistically}]
-                    ]
-                    [RNN\footnote{Recurrent Neural Network}
-                        [\cite{wang-etal-2016-dimensional}]
-                        [\cite{ijcai2017-494}]
-                    ]
-            ]]]]
-            [,[,[,[,[,[,[Aspect Level, calign=last
-                            [RecNN
-                                [\cite{68dong-etal-2014-adaptive}]
-                            ]
-                            [LSTM
-                                [\cite{70tang-etal-2016-effective}]
-                                [\cite{71ruder-etal-2016-hierarchical}]
-                                [\cite{73wang-etal-2016-attention}]
-                                [\cite{74YANGATT}]
-                                [\cite{75liu-zhang-2017-attention}]
-                            ]
-                            [RNN
-                                [\cite{80chen-etal-2017-recurrent}]
-                            ]
-                            [GRU
-                                [\cite{72Zhang_Zhang_Vo_2016}]
-                            ]
-                            [MemNN
-                                [\cite{76tang2016aspect}]
-                                [\cite{80chen-etal-2017-recurrent}]
-                            ]
-            ]]]]]]]
-        ],
-        [CNN\footnote{Convolutional Neural Network}
-            [\cite{johnson-zhang-2015-effective}]
-        ],
-        [GRU\footnote{Gated Recurrent Unit}
-            [\cite{yang-etal-2016-hierarchical}]
-        ]
-        [\cite{c9d4fbeac7324056bed5d1cb262a7268}]
-        [\cite{joulin2016fasttext}]
-        [\cite{iyyer-etal-2015-deep}]
-        [\cite{johnson-zhang-2017-deep}]
-        [\cite{DBLP:journals/corr/ConneauSBL16}]
-    ],
-    [Machine Translation,
-        [LSTM,
-            [\cite{wu2016google}]
-        ]
-    ]
-]
-\end{forest}
-\end{noindent}
-\end{tiny}
-\end{latin}
-
-\pagebreak
-
-\section{مقدمه}
-
-\section{روش‌های بر پایه رویکرد تحلیل عواطف و احساسات}
-
-تحقیقات انجام شده روش‌های گوناگون و زیادی را برای انجام این فعالیت ارائه داده‌اند که شامل هر دو روش
-نظارت شده و نظارت نشده می‌شوند.
-در این تحقیقات انواع و اقسام روش‌های نظارت شده به منظور استخراج اطلاعات از نظرات کاربران
-استفاده شده‌اند که می‌توان از میان آن‌ها به
-\lr{Support	Vector	Machines (SVM)}
-،
-\lr{Maximum Entropy}
-و
-\lr{Naïve Bayes}
-اشاره کرد.
-روش‌های نظارت نشده نیز دستاورد‌های زیادی داشته‌اند.
-
-از حدود یک دهه گذشته روش‌های مبتنی بر یادگیری عمیق پر قدرت وارد این عرصه شدند و نتایج پیشرفته‌ای
-از خود در زمینه پردازش زبان و گفتار طبیعی به خصوص
-\lr{Sentiment analysis}
-به جای گذاشتند.
-همین مسئله سبب افزایش استفاده از یادگیری عمیق در مسائل مربوط به استخراج اطلاعات و تجزیه تحلیل
-عواطف و احساسات شد.
-\cite{zhang2018deep}
-
-\subsection{بررسی چند مقاله}
-
-در سال ۲۰۱۳ در مقاله
-\cite{Moraes2013DocumentlevelSC}
-مقایسه‌ای بین
-\lr{Support Vector Machines}
-و
-\lr{Artificial Neural Networks}
-برای طبقه بندی متون در سطح سند انجام شد. این مقایسه نشان داد که شبکه‌‌های عصبی عمیق می‌توانند نتایجی نزدیک به
-SVM
-را به دست آورند. در بسیاری از موارد نتایج به دست آمده قابلیت رقابت با عملکرد‌
-SVM
-را دارا هستند. این مسئله سبب آن شد که بسیاری با استناد به مقاله‌ی معرفی شده سعی در حل چالش‌های پردازش زبان و متن کاوی
-با استفاده از شبکه‌های عمیق دارند.
-
-در
-\cite{xu2016cached}
-مدلی به عنوان
-cached-LSTM
-معرفی شد تا بتواند ارتباطات معنایی در متون بلند را درک کند. این مدل تشکیل شده از چند بخش است که هر یک از این
-بخش‌ها میزان فراموشی مربوط به خود را داردند. این کار سبب می‌شود تا بخش‌هایی از حافظه با میزان فراموشی کم‌تر ویژگی‌های
-معنایی
-global
-یک متن را استخراج کنند و بخش‌های با میزان فراموشی بالا به ارتباطات و ویژگی‌های معنایی
-local
-دست یابند.
-
-مقالات زیادی سعی بر استفاده و کمک گرفتن از جنبه‌های دیگر برای حل مسئله‌ی تحلیل عواطف و احساسات دارند،
-به عنوان مثال مقاله‌ی
-\cite{yin-etal-2017-document}
-به این عمل از دید مسئله‌ی درک ماشین نگاه می‌کند و با ارائه یک مدل سلسله مراتبی بر اساس
-attention
-و معماری شبکه‌ی
-LSTM
-این مسئله را حل می‌کند.
-در همین راستا مقاله
-\cite{zhou-etal-2016-attention}
-با کمک گرفتن از زبان انگلیسی که داده‌ها و منابع زیادی برای انجام عمل یادگیری برای آن وجود دارد، تحلیل
-عواطف را در زبان‌های دیگر که دیتاست‌های کمتری برای آن‌ها موجود است انجام می‌دهد. این کار با استفاده از دو شبکه
-LSTM
-بر اساس
-attention
-که ساختاری سلسله مراتبی دارند انجام می‌شود.
-در
-\cite{ijcai2017-311}
-نیز با استفده از
-MemNN
-و
-\lr{transfer learning}
-به تحلیل عواطف و احساسات در سطح سند پرداخته می‌شود.
-
-\subsection{CharSCNN و طول متن}
-
-طول متون نیز اهمیت بالایی در نتیجه گیری بر اساس متن‌ها و دریافت عواطف و احساسات دارد.
-در متون کوتاه مثل توییت‌ها یا تک جمله‌ها، به دلیل عدم وجود اطلاعات زیاد به دست آوردن تخمین درستی از
-عواطف و احساسات قرار گرفته در مفاهیم متن کاری بسیار دشوار است.
-برای این کار لازم است تا علوه بر داشتن دانش قبلی از استراتژی‌ها به خصوصی استفاده نمود.
-در
-\cite{dos2014deep}
-با به کار گیری از یک شبکه‌ی عمیق کانولوشنی با نام
-CharSCNN
-این مشکل را حل کردند. برای این کار ابتدا کلمات متن را به صورت برداری تبدیل می‌کنند در واقع عملیات
-embedding
-انجام می‌شود. سپس هر بردار به دو بردار تبدیل می‌شود. یکی بردار در سطح کلمات و دیگری بردار در سطح حروف.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{CHARCNN}
-    \caption{ شبکه‌ی کانولوشنی در سطح حروف }
-    \label{fig:CHARCNN}
-\end{figure}
-
-در مرحله‌ی بعدی نمایش جمله‌ای از متن با استفاده از یک شبکه‌های کانولوشنی دیگر به دست می‌آید.
-چالش اصلی این بخش آن است که طول جملات ثابت نیستند و قسمت‌های مهم جمله و نمایانگر عواطف و احساسات
-ممکن است در هر نقطه از جمله وجود داشته باشند. این لایه، در واقع شبکه‌ی کانولوشنی است که وظیفه‌ی آن
-به دست آوردن این نمایش از متن است. این کار با به دست آوردن ویژگی‌های محلی اطراف هر کلمه و ترکیب
-آن‌ها با استفاده ماکزیمم گیری انجام می‌شود.
-
-
-
-
-\cite{tang-etal-2015-document} 1327 2015
-\cite{socher-etal-2011-semi} 1471 2011
-\cite{socher-etal-2012-semantic} 1400 2012
-\cite{socher-etal-2013-recursive} 5000 2013
-
-
-\section{روش‌های بر پایه رویکرد طبقه بندی متن}
-
-\subsubsection{Seq-CNN و ‌BOW-CNN}
-
-ترتیب کلمات درون متون قطعا تاثیر بسیار زیادی در معنا و مفهوم و در نهایت این که هر متن در چه کلاسی قرار می‌گیرد
-تاثیر بسیار زیادی دارد. اما روش‌های بر مبنای
-BOW
-از این ویژگی استفاده‌ای نمی‌کنند. زیرا بردار حاوی اطلاعات تنها این که چه کلماتی در متن استفاده شده‌اند را نمایش می‌دهند
-و ترتیب و جایگاه کلمات نادیده گرفته می‌شوند. در این مقاله برای آن که از این ترتیب بهره‌گیری و استفاده شود از شبکه‌ی عصبی
-convolutional
-استفاده شده‌است. استفاده از
-CNN
-سبب می‌شود تا بتوان از ساختار ترتیبی متون بهره برد تا هر بخش از شبکه‌ی کانولوشنی مسئولیت پردازش بخشی از متن
-یا دنباله‌ای از کلمات را داشته باشد. شکل
-\ref{fig:cnn-in-text}
-این عمل را نشان می‌دهد.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{cnn-in-text}
-    \caption{ استفاده از شبکه‌ی کانولوشنی به منظور بهره‌گیری از ترتیب کلمات }
-    \label{fig:cnn-in-text}
-\end{figure}
-
-به منظور این کار شبکه‌ی کانولوشنال به صورت مستقیم با بردار ورودی سر و کار دارد و در واقع به جای استفاده از
-روش‌های
-embeding
-، خود شبکه این کار ار یاد می‌گیرد. دو نوع شبکه
-seq-CNN
-و
-BOW-CNN
-معرفی شد و نشان داده شد که شبکه‌ی اول در تحلیل عواطف بهتر عمل می‌کند و روش دوم در طبقه بندی بر اساس موضوع.
-\cite{johnson-zhang-2015-effective}
-
-\subsection{بررسی چند مقاله}
-
-\cite{yang-etal-2016-hierarchical} 3269 2017
-
-\section{روش‌های بر پایه شبکه‌های کانولوشنال}
-
-\subsection{بررسی چند مقاله}
-
-\cite{kalchbrenner-etal-2014-convolutional} 3285 2014
-
-\section{روش‌های بر پایه شبکه‌های Transformer}
-
-روش‌های محتلفی بر پایه‌ی
-Transformer
-ها ارائه شده‌اند. از میان این روش‌ها روش
-BERT
-به دلیل کاربرد بسیار و همچنین ارائه به عنوان اولین مدل موفق از نوع خود از اهمیت بالایی برخوردار است که به بررسی آن
-پرداخته می‌شود.
-
-\subsection{شبکه‌ی BERT}
+\subsubsection{شبکه‌ی BERT}
 
 شبکه‌ی
 BERT
@@ -1116,13 +789,253 @@ fine-tuning
 GPU
 تنها چند ساعت نیاز است.\cite{devlin2018bert}
 
+
+
+\subsection{شبکه‌های حافظه‌ای}
+شبکه‌های حافظه‌ای یا
+\lr{Memmory Networks}
+که به طور خلاصه
+MenNN
+نیز نوشته می‌شوند در ابتدا برای پاسخ دهی به سوالات ارائه شدند. این شبکه دارای تعدادی کامپوننت استنباطی در کنار یک
+حافظه‌ی بلند مدت بزرگ است که به عنوان منبع دانایی عمل می‌کند. وظایف کلی کامپوننت‌ها به این شکل است. کامپوننت
+I
+ورودی را به نمایش ویژگی‌ها تبدیل می‌کند. کامپوننت بعدی یعنی
+G
+بر اساس ورودی‌های دریافتی جدید حافظه را به روزرسانی می‌کند. کامپوننت
+O
+در واقع وظیفه‌ی تولید خروجی را بر عهده دارد و کامپوننت
+R
+خروجی تولید شده را به فرمت مورد نظر تبدیل می‌کند. جدول
+\ref{tab:MemNN-vs-others}
+مقایسه‌ی این مدل به دو شبکه
+RNN
+و
+LSTM
+را در دو مسئله با سختی‌های متفاوت نشان می‌دهد.
+\cite{zhang2018deep}
+
+\begin{table}[h]
+    \begin{small}
+    \begin{center}
+      \begin{latin}
+      \begin{tabular}{|l||l|l|l||l|l|}
+        \hline
+         & \multicolumn{3}{c|}{Difficulty 1} & \multicolumn{2}{c|}{Difficulty 5} \\
+        \hline
+        Method & actor w/o before & actor & actor+obj & actor & actor+obj \\
+        \hline
+        RNN & 100\% & 60.9\% & 27.9\% & 23.8\% & 17.8\% \\
+        LSTM & 100\% & 64.8\% & 49.1\% & 35.2\% & 29.0\% \\
+        \hline
+        MemNN k= 1 & 97.8\% & 31.0\% & 24.0\% & 21.9\% & 18.5\% \\
+        MemNN k= 1 & 99.9\% & 60.2\% & 42.5\% & 60.8\% & 44.4\% \\
+        MemNN k= 2 & 100\% & 100\% & 100\% & 100\% & 99.9\% \\
+        \hline
+      \end{tabular}
+      \end{latin}
+      \caption{مقایسه عملکرد سه مدل حافظه‌ای}
+      \label{tab:MemNN-vs-others}
+    \end{center}
+\end{small}
+  \end{table}
+
+
+\chapter{کارهای مرتبط}
+\pagebreak
+
+% طول متن برای درختواره
+
+\begin{latin}
+\begin{tiny}
+\begin{noindent}
+\begin{forest}
+for tree = { draw },
+before typesetting nodes={
+    where content={}{coordinate}{},
+},
+forked edges,
+[Text Mining,
+    [Classification,
+        [Sentiment Analysis
+            [Autoencoder
+                [\cite{zhaiEncoder}]
+            ]
+            [CNN\footnote{Convolutional Neural Network}
+                [\cite{tang-etal-2015-document}]
+                [\cite{dos2014deep}]
+                [\cite{wang-etal-2016-combination}]
+                [\cite{guggilla-etal-2016-cnn}]
+            ]
+            [GRU\footnote{Gated Recurrent Unit}
+                [\cite{tang-etal-2015-document}]
+            ]
+            [LSTM\footnote{Long Short Term Memory}
+                [\cite{tang-etal-2015-document}]
+                [\cite{xu2016cached}]
+                [\cite{yin-etal-2017-document}]
+                [\cite{zhou-etal-2016-attention}]
+                [\cite{wang-etal-2016-combination}]
+                [\cite{guggilla-etal-2016-cnn}]
+                [\cite{teng-etal-2016-context}]
+            ]
+            [MemNN\footnote{Memory Network}
+                [\cite{ijcai2017-311}]
+            ]
+            [RecNN
+                [\cite{68dong-etal-2014-adaptive}]
+            ]
+            [,[,[,[Sentence Level, calign=last
+                    [Autoencoder
+                        [\cite{socher-etal-2011-semi}]
+                    ]
+                    [RecNN\footnote{Recursive Neural Network}
+                        [\cite{socher-etal-2011-semi}]
+                        [\cite{socher-etal-2012-semantic}]
+                        [\cite{socher-etal-2013-recursive}]
+                        [\cite{qian-etal-2015-learning}]
+                    ]
+                    [CNN
+                        [\cite{kalchbrenner-etal-2014-convolutional}]
+                        [\cite{kim-2014-convolutional}]
+                        [\cite{wang-etal-2016-dimensional}]
+                        [\cite{wang-etal-2016-dimensional}]
+                        [\cite{mishra-etal-2017-learning}]
+                    ]
+                    [LSTM
+                        [\cite{wang-etal-2016-dimensional}]
+                    ]
+                    [RNN\footnote{Recurrent Neural Network}
+                        [\cite{wang-etal-2016-dimensional}]
+                    ]
+            ]]]]
+            [,[,[,[,[,[,[Aspect Level, calign=last
+                            
+                            [LSTM
+                                [\cite{70tang-etal-2016-effective}]
+                                [\cite{71ruder-etal-2016-hierarchical}]
+                                [\cite{73wang-etal-2016-attention}]
+                                [\cite{74YANGATT}]
+                                [\cite{75liu-zhang-2017-attention}]
+                            ]
+                            [RNN
+                                [\cite{80chen-etal-2017-recurrent}]
+                            ]
+                            [GRU
+                                [\cite{72Zhang_Zhang_Vo_2016}]
+                            ]
+                            [MemNN
+                                [\cite{76tang2016aspect}]
+                                [\cite{80chen-etal-2017-recurrent}]
+                            ]
+            ]]]]]]]
+        ],
+        [CNN\footnote{Convolutional Neural Network}
+            [\cite{johnson-zhang-2015-effective}]
+        ],
+        [GRU\footnote{Gated Recurrent Unit}
+            [\cite{yang-etal-2016-hierarchical}]
+        ]
+        [LSTM
+            [\cite{graves2005framewise}]
+        ]
+        [Transformers
+            [\cite{schmidt2020data}]
+        ]
+        [\cite{c9d4fbeac7324056bed5d1cb262a7268}]
+        [\cite{joulin2016fasttext}]
+        [\cite{iyyer-etal-2015-deep}]
+        [\cite{johnson-zhang-2017-deep}]
+        [\cite{DBLP:journals/corr/ConneauSBL16}]
+    ],
+    [Machine Translation,
+        [LSTM,
+            [\cite{wu2016google}]
+        ]
+    ]
+]
+\end{forest}
+\end{noindent}
+\end{tiny}
+\end{latin}
+
+\pagebreak
+
+\section{مقدمه}
+
+\section{روش‌های بر پایه رویکرد طبقه بندی متن}
+
+\subsubsection{Seq-CNN و ‌BOW-CNN}
+
+ترتیب کلمات درون متون قطعا تاثیر بسیار زیادی در معنا و مفهوم و در نهایت این که هر متن در چه کلاسی قرار می‌گیرد
+تاثیر بسیار زیادی دارد. اما روش‌های بر مبنای
+BOW
+از این ویژگی استفاده‌ای نمی‌کنند. زیرا بردار حاوی اطلاعات تنها این که چه کلماتی در متن استفاده شده‌اند را نمایش می‌دهند
+و ترتیب و جایگاه کلمات نادیده گرفته می‌شوند. در این مقاله برای آن که از این ترتیب بهره‌گیری و استفاده شود از شبکه‌ی عصبی
+convolutional
+استفاده شده‌است. استفاده از
+CNN
+سبب می‌شود تا بتوان از ساختار ترتیبی متون بهره برد تا هر بخش از شبکه‌ی کانولوشنی مسئولیت پردازش بخشی از متن
+یا دنباله‌ای از کلمات را داشته باشد. شکل
+\ref{fig:cnn-in-text}
+این عمل را نشان می‌دهد.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{cnn-in-text}
+    \caption{ استفاده از شبکه‌ی کانولوشنی به منظور بهره‌گیری از ترتیب کلمات }
+    \label{fig:cnn-in-text}
+\end{figure}
+
+به منظور این کار شبکه‌ی کانولوشنال به صورت مستقیم با بردار ورودی سر و کار دارد و در واقع به جای استفاده از
+روش‌های
+embeding
+، خود شبکه این کار ار یاد می‌گیرد. دو نوع شبکه
+seq-CNN
+و
+BOW-CNN
+معرفی شد و نشان داده شد که شبکه‌ی اول در تحلیل عواطف بهتر عمل می‌کند و روش دوم در طبقه بندی بر اساس موضوع.
+\cite{johnson-zhang-2015-effective}
+
 \subsection{بررسی چند مقاله}
 
-در
+برای انجام عمل دسته بندی در متون در سطوح مختلف جمله، کلمه و حروف تلاش‌های زیادی انجام شد.
+\cite{graves2005framewise}
+در سال ۲۰۰۵ نشان داد که استفاده از شبکه‌های
+lr{Bidirectional LSTM}
+می‌تواند نتایجی بهتر از مدل‌های
+RNN
+معمولی به دست آورد. برای این کار در لایه‌های پنهان مدل ارتباطات دو طرفه اضافه کردند و با بررسی نتایج مهر تعییدی
+بر عملکرد بهتر شبکه‌ی بر پایه‌ی حافظه‌ی دوطرفه زدند.
+
+مقاله‌ی
+\cite{guggilla-etal-2016-cnn}
+نیز به مانند 
+\cite{wang-etal-2016-combination}
+از ترکیب دو شبکه‌ی
+CNN
+و
+LSTM
+برای ساخت مدل خود استفاده کرد. این مدل با بهره گیری از روش نمایش
+Word2Vec
+به این عمل پرداخت. هر دو شبکه‌ی کانولوشنان و دارای حافظه استفاده‌های زیادی در مسائل طبقه بندی داشته‌اند و ترکیب آن‌ها
+نیز نتایج خوبی را ارائه داده است.
+
+روش‌های محتلفی بر پایه‌ی
+Transformer
+ها ارائه شده‌اند. از میان این روش‌ها روش
+BERT
+به دلیل کاربرد بسیار و همچنین ارائه به عنوان اولین مدل موفق از نوع خود از اهمیت بالایی برخوردار است که به بررسی آن
+پرداخته شد. شبکه‌های بسیاری برای بالا بردن دقت از
+BERT
+استفاده کرده‌اند. به طور کل در میان مقالاتی که از
+Transformer
+ها برای حل مسائل پردازش زبان طبیعی استفاده کرده‌اند، شبکه‌ی
+BERT
+جایگاه ویژه‌ای دارد.
 \cite{schmidt2020data}
 از سه مدل
 BERT
-استفاده شده‌است:
+استفاده شده‌است،
 BERT-base
 ، مدل چندزبانه
 BERT
@@ -1138,6 +1051,185 @@ fully-connected
 از
 \lr{logits function}
 استفاده شده‌است. این کار سبب شده‌است که مدل قادر به تخمین زدن به صورت چند کلاسه نیز باشد.
+
+\cite{yang-etal-2016-hierarchical} 3269 2017
+
+
+\section{روش‌های بر پایه رویکرد تحلیل عواطف و احساسات}
+
+تحقیقات انجام شده روش‌های گوناگون و زیادی را برای انجام این فعالیت ارائه داده‌اند که شامل هر دو روش
+نظارت شده و نظارت نشده می‌شوند.
+در این تحقیقات انواع و اقسام روش‌های نظارت شده به منظور استخراج اطلاعات از نظرات کاربران
+استفاده شده‌اند که می‌توان از میان آن‌ها به
+\lr{Support	Vector	Machines (SVM)}
+،
+\lr{Maximum Entropy}
+و
+\lr{Naïve Bayes}
+اشاره کرد.
+روش‌های نظارت نشده نیز دستاورد‌های زیادی داشته‌اند.
+
+از حدود یک دهه گذشته روش‌های مبتنی بر یادگیری عمیق پر قدرت وارد این عرصه شدند و نتایج پیشرفته‌ای
+از خود در زمینه پردازش زبان و گفتار طبیعی به خصوص
+\lr{Sentiment analysis}
+به جای گذاشتند.
+همین مسئله سبب افزایش استفاده از یادگیری عمیق در مسائل مربوط به استخراج اطلاعات و تجزیه تحلیل
+عواطف و احساسات شد.
+\cite{zhang2018deep}
+
+
+\subsubsection{وابستگی به هدف}
+در بحث استخراج و تحلیل عواطف و احساسات از متون موردی که تاثیر بسیاری در نتیجه‌ی نهایی دارد هدف یا به اصطلاح
+target
+می‌باشد. به عنوان مثال جمله‌ی زیر با توجه به این که هدف بررسی، سیستم عامل ویندوز باشد یا لینوکس نتیجه‌ی متفاوتی دارد.
+\begin{quotation}
+    لینوکس عملکرد بهتری نسبت به ویندوز دارد.
+\end{quotation}
+اگر هدف ما کلمه‌ی لینوکس باشد نتیجه‌ی استخراج و تحلیل متن مثبت می‌شود، و اگر هدف ویندوز باشد، نتیجه منفی است.
+در صورت آن که هدف کلمه‌ی دیگری مثل اندروید باشد، نتیجه‌ی خنثی حاصل می‌شود.
+
+مقاله‌ی
+\cite{68dong-etal-2014-adaptive}
+با ارائه
+AdaRNN
+متون را با وابستگی به هدف مورد بررسی قرار داد. این مدل با یادگیری آن که کلمه یا کلمات حاوی اطلاعات مهم را با
+ربط دادن به کلمه‌ی هدف استخراج کند، متون را از دید ساختاری بررسی می‌کند.
+
+
+
+\subsubsection{CharSCNN و طول متن}
+
+طول متون نیز اهمیت بالایی در نتیجه گیری بر اساس متن‌ها و دریافت عواطف و احساسات دارد.
+در متون کوتاه مثل توییت‌ها یا تک جمله‌ها، به دلیل عدم وجود اطلاعات زیاد به دست آوردن تخمین درستی از
+عواطف و احساسات قرار گرفته در مفاهیم متن کاری بسیار دشوار است.
+برای این کار لازم است تا علوه بر داشتن دانش قبلی از استراتژی‌ها به خصوصی استفاده نمود.
+در
+\cite{dos2014deep}
+با به کار گیری از یک شبکه‌ی عمیق کانولوشنی با نام
+CharSCNN
+این مشکل را حل کردند. برای این کار ابتدا کلمات متن را به صورت برداری تبدیل می‌کنند در واقع عملیات
+embedding
+انجام می‌شود. سپس هر بردار به دو بردار تبدیل می‌شود. یکی بردار در سطح کلمات و دیگری بردار در سطح حروف.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{CHARCNN}
+    \caption{ شبکه‌ی کانولوشنی در سطح حروف }
+    \label{fig:CHARCNN}
+\end{figure}
+
+در مرحله‌ی بعدی نمایش جمله‌ای از متن با استفاده از یک شبکه‌های کانولوشنی دیگر به دست می‌آید.
+چالش اصلی این بخش آن است که طول جملات ثابت نیستند و قسمت‌های مهم جمله و نمایانگر عواطف و احساسات
+ممکن است در هر نقطه از جمله وجود داشته باشند. این لایه، در واقع شبکه‌ی کانولوشنی است که وظیفه‌ی آن
+به دست آوردن این نمایش از متن است. این کار با به دست آوردن ویژگی‌های محلی اطراف هر کلمه و ترکیب
+آن‌ها با استفاده ماکزیمم گیری انجام می‌شود.
+
+
+
+\cite{tang-etal-2015-document} 1327 2015
+\cite{socher-etal-2011-semi} 1471 2011
+\cite{socher-etal-2012-semantic} 1400 2012
+\cite{socher-etal-2013-recursive} 5000 2013
+
+
+
+
+\subsection{بررسی چند مقاله}
+
+در سال ۲۰۱۳ در مقاله
+\cite{Moraes2013DocumentlevelSC}
+مقایسه‌ای بین
+\lr{Support Vector Machines}
+و
+\lr{Artificial Neural Networks}
+برای طبقه بندی متون در سطح سند انجام شد. این مقایسه نشان داد که شبکه‌‌های عصبی عمیق می‌توانند نتایجی نزدیک به
+SVM
+را به دست آورند. در بسیاری از موارد نتایج به دست آمده قابلیت رقابت با عملکرد‌
+SVM
+را دارا هستند. این مسئله سبب آن شد که بسیاری با استناد به مقاله‌ی معرفی شده سعی در حل چالش‌های پردازش زبان و متن کاوی
+با استفاده از شبکه‌های عمیق دارند.
+
+در
+\cite{xu2016cached}
+مدلی به عنوان
+cached-LSTM
+معرفی شد تا بتواند ارتباطات معنایی در متون بلند را درک کند. این مدل تشکیل شده از چند بخش است که هر یک از این
+بخش‌ها میزان فراموشی مربوط به خود را داردند. این کار سبب می‌شود تا بخش‌هایی از حافظه با میزان فراموشی کم‌تر ویژگی‌های
+معنایی
+global
+یک متن را استخراج کنند و بخش‌های با میزان فراموشی بالا به ارتباطات و ویژگی‌های معنایی
+local
+دست یابند.
+
+مقالات زیادی سعی بر استفاده و کمک گرفتن از جنبه‌های دیگر برای حل مسئله‌ی تحلیل عواطف و احساسات دارند،
+به عنوان مثال مقاله‌ی
+\cite{yin-etal-2017-document}
+به این عمل از دید مسئله‌ی درک ماشین نگاه می‌کند و با ارائه یک مدل سلسله مراتبی بر اساس
+attention
+و معماری شبکه‌ی
+LSTM
+این مسئله را حل می‌کند.
+در همین راستا مقاله
+\cite{zhou-etal-2016-attention}
+با کمک گرفتن از زبان انگلیسی که داده‌ها و منابع زیادی برای انجام عمل یادگیری برای آن وجود دارد، تحلیل
+عواطف را در زبان‌های دیگر که دیتاست‌های کمتری برای آن‌ها موجود است انجام می‌دهد. این کار با استفاده از دو شبکه
+LSTM
+بر اساس
+attention
+که ساختاری سلسله مراتبی دارند انجام می‌شود.
+در
+\cite{ijcai2017-311}
+نیز با استفده از
+MemNN
+و
+\lr{transfer learning}
+به تحلیل عواطف و احساسات در سطح سند پرداخته می‌شود.
+\cite{teng-etal-2016-context}
+نیز با ارائه‌ی مدل
+\lr{Bidirectional LSTM}
+حساس به متن، با استفاده از دایره لغاتی از کلمات حاوی اطلاعات احساسی با وزن‌های متفاوت روشی برای حل این مسئله ارائه داد.
+
+همانطور که گفته شد متون کوتاه چالش‌های اضافه‌ای به دلیل نبود اطلاعات کافی معنایی برای تشخیص و دسته بندی عواطف
+و احساسات درون متن دارند.
+\cite{wang-etal-2016-combination}
+با دانش بر این مسئله که شبکه‌های کانولوشنال درک خوبی از قرار گیری کلمات در کنار یکدیگر دارند و همچنین دقت
+بهتر شبکه‌های
+RNN
+در حل اینگونه مسائل با ترکیب کردن این دو شبکه، مدلی برای امر تحلیل و بررسی عواطف و احساسات ارائه داد.
+
+بازارهای مالی یکی از جذاب‌ترین موارد برای تحقیق در زمینه پردازش زبان طبیعی هستند زیرا اطلاعات زیادی از قبیل
+توییت‌های افراد و همچنین کارشناسان این زمینه به طور مداوم در حال ایجاد شدن است. مقاله‌های بسیاری به طور خاص در زمینه
+پردازش متون مربوط به بازارهای مالی و استخراج عواطف و احساسات و در نهایت نتیجه گیری از آن‌ها ارائه شده‌اند که
+\cite{akhtar2017multilayer}
+یکی از آن‌ها است. در این مقاله با ایجاد شبکه‌ای با ساختاری شبیه به
+\lr{Multilayer Perceptron}
+که در تصویر
+\ref{fig:MLP-ensemble}
+آورده شده‌است، به تحلیل متون مربوط به بازار‌های مالی پرداخته است.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{MLPENSEMBLE}
+    \caption{ ترکیب بر اساس MLP }
+    \label{fig:MLP-ensemble}
+\end{figure}
+
+در این شبکه از نتایج شبکه‌های
+LSTM
+،
+CNN
+و 
+GRU
+استفاده شده‌است و با اضافه کردن تعدادی لایه‌ی
+fully-connected
+نتیجه‌ی نهایی ایجاد می‌شود.
+
+\section{ روش‌های چندمنظوره }
+
+\cite{kalchbrenner-etal-2014-convolutional} 3285 2014
+
+\subsection{بررسی چند مقاله}
+
 
 \chapter{جمع‌بندی و نتیجه‌گیری}
 \pagebreak
