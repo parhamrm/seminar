@@ -845,11 +845,12 @@ LSTM
 
 % طول متن برای درختواره
 
+\begin{figure}[h]
 \begin{latin}
 \begin{tiny}
 \begin{noindent}
 \begin{forest}
-for tree = { draw },
+for tree = { draw, align=center },
 before typesetting nodes={
     where content={}{coordinate}{},
 },
@@ -857,98 +858,76 @@ forked edges,
 [Text Mining,
     [Classification,
         [Sentiment Analysis
-            [Autoencoder
-                [\cite{zhaiEncoder}]
+            [Autoencoder \\
+                \cite{zhaiEncoder}
             ]
-            [CNN\footnote{Convolutional Neural Network}
-                [\cite{tang-etal-2015-document}]
-                [\cite{dos2014deep}]
-                [\cite{wang-etal-2016-combination}]
-                [\cite{guggilla-etal-2016-cnn}]
+            [CNN \\
+                \cite{tang-etal-2015-document} \\
+                \cite{dos2014deep} \\
+                \cite{wang-etal-2016-combination} \\
+                \cite{guggilla-etal-2016-cnn}
             ]
-            [GRU\footnote{Gated Recurrent Unit}
-                [\cite{tang-etal-2015-document}]
-                [\cite{72Zhang_Zhang_Vo_2016}]
+            [GRU \\
+                \cite{tang-etal-2015-document} \\
+                \cite{72Zhang_Zhang_Vo_2016}
             ]
-            [LSTM\footnote{Long Short Term Memory}
-                [\cite{tang-etal-2015-document}]
-                [\cite{xu2016cached}]
-                [\cite{yin-etal-2017-document}]
-                [\cite{zhou-etal-2016-attention}]
-                [\cite{wang-etal-2016-combination}]
-                [\cite{guggilla-etal-2016-cnn}]
-                [\cite{teng-etal-2016-context}]
-                [\cite{70tang-etal-2016-effective}]
-                [\cite{71ruder-etal-2016-hierarchical}]
+            [LSTM \\
+                \cite{tang-etal-2015-document} \\
+                \cite{xu2016cached} \\
+                \cite{yin-etal-2017-document} \\
+                \cite{zhou-etal-2016-attention} \\
+                \cite{wang-etal-2016-combination} \\
+                \cite{guggilla-etal-2016-cnn} \\
+                \cite{teng-etal-2016-context} \\
+                \cite{70tang-etal-2016-effective} \\
+                \cite{71ruder-etal-2016-hierarchical} \\
+                \cite{73wang-etal-2016-attention} \\
+                \cite{74YANGATT}
             ]
-            [MemNN\footnote{Memory Network}
-                [\cite{ijcai2017-311}]
+            [MemNN \\
+                \cite{ijcai2017-311}
             ]
-            [RecNN
-                [\cite{68dong-etal-2014-adaptive}]
+            [RecNN \\
+                \cite{68dong-etal-2014-adaptive}
             ]
-            [,[,[,[Sentence Level, calign=last
-                    [Autoencoder
-                        [\cite{socher-etal-2011-semi}]
-                    ]
-                    [RecNN\footnote{Recursive Neural Network}
-                        [\cite{socher-etal-2011-semi}]
-                        [\cite{socher-etal-2012-semantic}]
-                        [\cite{socher-etal-2013-recursive}]
-                        [\cite{qian-etal-2015-learning}]
-                    ]
-                    [CNN
-                        [\cite{kalchbrenner-etal-2014-convolutional}]
-                        [\cite{kim-2014-convolutional}]
-                        [\cite{wang-etal-2016-dimensional}]
-                        [\cite{wang-etal-2016-dimensional}]
-                        [\cite{mishra-etal-2017-learning}]
-                    ]
-                    [LSTM
-                        [\cite{wang-etal-2016-dimensional}]
-                    ]
-                    [RNN\footnote{Recurrent Neural Network}
-                        [\cite{wang-etal-2016-dimensional}]
-                    ]
-            ]]]]
-            [,[,[,[,[,[,[Aspect Level, calign=last         
-                            [LSTM
-                                [\cite{73wang-etal-2016-attention}]
-                                [\cite{74YANGATT}]
-                                [\cite{75liu-zhang-2017-attention}]
-                            ]
-                            [RNN
-                                [\cite{80chen-etal-2017-recurrent}]
-                            ]
-                            [GRU
-                            ]
-                            [MemNN
-                                [\cite{76tang2016aspect}]
-                                [\cite{80chen-etal-2017-recurrent}]
-                            ]
-            ]]]]]]]
+            [Aspect Level, calign=last         
+                [LSTM
+                    [\cite{75liu-zhang-2017-attention}]
+                ]
+                [RNN
+                    [\cite{80chen-etal-2017-recurrent}]
+                ]
+                [GRU
+                ]
+                [MemNN
+                    [\cite{76tang2016aspect}]
+                    [\cite{80chen-etal-2017-recurrent}]
+                ]
+            ]
         ],
-        [CNN\footnote{Convolutional Neural Network}
-            [\cite{johnson-zhang-2015-effective}]
+        [CNN \\
+            \cite{johnson-zhang-2015-effective}
         ],
-        [GRU\footnote{Gated Recurrent Unit}
-            [\cite{yang-etal-2016-hierarchical}]
+        [GRU \\
+            \cite{yang-etal-2016-hierarchical}
         ]
-        [LSTM
-            [\cite{graves2005framewise}]
+        [LSTM \\
+            \cite{graves2005framewise}
         ]
-        [Transformers
-            [\cite{schmidt2020data}]
+        [Transformers \\
+            \cite{schmidt2020data}
         ]
-        [\cite{c9d4fbeac7324056bed5d1cb262a7268}]
-        [\cite{joulin2016fasttext}]
-        [\cite{iyyer-etal-2015-deep}]
-        [\cite{johnson-zhang-2017-deep}]
-        [\cite{DBLP:journals/corr/ConneauSBL16}]
+        [
+            \cite{c9d4fbeac7324056bed5d1cb262a7268} \\
+            \cite{joulin2016fasttext} \\
+            \cite{iyyer-etal-2015-deep} \\
+            \cite{johnson-zhang-2017-deep} \\
+            \cite{DBLP:journals/corr/ConneauSBL16}
+        ]
     ],
     [Machine Translation,
-        [LSTM,
-            [\cite{wu2016google}]
+        [LSTM \\
+            \cite{wu2016google}
         ]
     ]
 ]
@@ -956,6 +935,7 @@ forked edges,
 \end{noindent}
 \end{tiny}
 \end{latin}
+\end{figure}
 
 \pagebreak
 
@@ -1193,11 +1173,106 @@ GRU
 سبب کم شدن جانب‌داری\footnote{bias}
 در تصمیم گیری‌های مدل می‌شود.
 
+در
+\cite{74YANGATT}
+دو شبکه
+LSTM
+بر پایه مکانیزم توجه ارائه شد با هدف این که مدلشان سبب افزایش دقت کلاس بندی\footnote{Classification}
+شود.
+
+در مدل اول
+(\lr{AB-LSTM1})
+وزن‌های به دست آمده در لایه‌ی پنهان یعنی نتیجه‌ی
+LSTM
+با نمایش برداری وزن‌های به دست آمده از هدف و جنبه‌ی بررسی ضرب می‌شوند و به شبکه
+مکانیزم توجه داده می‌شوند.
+
+مدل دوم 
+(\lr{AB-LSTM2})
+این وزن‌ها با فرمول 
+\ref{formula:AB-LSTM2}
+با هم ترکیب می‌شوند و به مکانیزم توجه داده می‌شوند.
+
+\begin{equation}
+    a_t=softmax(h_t^TW_bh_{target})
+\end{equation}
+\begin{equation}
+    o={\Sigma_{t=1}^T a_th_t }
+    \label{formula:AB-LSTM2}
+\end{equation}
+
+
+
 \paragraph{ATAE-LSTM} \hfill \break
 
-همانطور که گفته شد شبکه‌های
-RNN\footnote{\lr{Recurrent Neural Networks}}
+همنطور که گفته شد، شبکه‌ی
+LSTM
+قادر به درک روابط معنایی و ساختاری در جملات است که مقاله‌های متعددی از این شبکه و ویژگی‌های آن برای
+ساخت مدل‌هایی با قابلیت تحلیل عواطف و احساسات با توجه به کلمه‌ی هدف پرداختند. اما نکته‌ای که وجود دارد آن است
+که این شبکه‌ها قادر به تشخیص آن که کدام بخش از جمله اهمیت بالاتری دارد، نیستند.
 
+در
+\cite{73wang-etal-2016-attention}
+برای رفع این کاستی و یافتن نقاط مهم جمله با توجه به کلمه ی هدف\footnote{Target}
+از مکانیزم توجه\footnote{\lr{Attention Mechanism}}
+بهره گیری شده‌است. در این مقاله سه مدل
+AE-LSTM\footnote{\lr{LSTM with Aspect Embedding}}
+،
+AT-LSTM\footnote{\lr{Attention-based LSTM}}
+و
+ATAE-LSTM\footnote{\lr{Attention-based LSTM with AspectEmbeddin}}
+که ترکیب دو روش قبلی است معرفی شده‌است.
+
+در روش
+AE-LSTM
+بردار
+embedding
+جنبه و هدف یادگیری می‌شود.
+
+در روش
+AT-LSTM
+معماری مدل طوری چیده شده‌است تا جنبه و هدف مورد تحلیل بر وزن‌های بخش مکانیزم توجه تاثیر بگذارند. برای این
+کار بردار مربوط به کلمه یا کلمات هدف را به نتیجه‌ی خروجی از لایه‌ی
+LSTM
+اضافه می‌کنند و به بخش مکانیزم توجه می‌دهند. مکانیزم توجه به مدل اجازه می‌دهد تا بخش‌های مهم جمله را
+با توجه به جنبه و هدف‌های مختلفی که به آن داده شده‌است، بیابد.
+
+روش
+ATAE-LSTM
+که ترکیبی از دو روش قبلی است، از اطلاعات به دست آمده از
+AE-LSTM
+استفاده می‌کند، اما برای این که این اطلاعات تاثیر بیشتری روی مدل بگذارند و بهتر بررسی شوند علاوه بر
+اضافه کردن به خروجی لایه‌ی
+LSTM
+آن را به نمایش برداری جمله اضافه می‌کند. ساختار این شبکه در تصویر
+\ref{fig:ATAE-LSTM}
+آمده است.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ATAE-LSTM}
+    \caption{ ساختار شبکه‌ی 
+        ATAE-LSTM -
+        در این تصویر ناحیه‌ی مشخص شده با رنگ زرد خروجی لایه‌ی حافظه کوتاه مدت بلند است.
+        بردار نمایش جنبه و هدف، به این لایه اضافه شده‌است که به مانند ساختار
+        AT-LSTM
+        می‌باشد. این بردار به نمایش برداری کلمات جمله نیز اضافه شده‌است که با این کار شبکه به
+        ATAE-LSTM
+        تبدیل می‌شود.
+    }
+    \label{fig:ATAE-LSTM}
+\end{figure}
+
+هیتمپ کلمات مهم و پر اهمیت با توجه به هدف و جنبه‌ی مشخص شده در تصویر
+\ref{fig:ATAE-HM}
+آمده‌است.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{ATAE-HM}
+    \caption{ هیتمپ کلمات مهم جمله }
+    \label{fig:ATAE-HM}
+\end{figure}
 
 \subsubsection{CharSCNN و طول متن}
 
