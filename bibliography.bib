@@ -175,39 +175,7 @@
     url = "https://www.aclweb.org/anthology/P15-1162",
     doi = "10.3115/v1/P15-1162",
     pages = "1681--1691",
-}
-
-@inproceedings{johnson-zhang-2017-deep,
-    title = "Deep Pyramid Convolutional Neural Networks for Text Categorization",
-    author = "Johnson, Rie  and
-      Zhang, Tong",
-    booktitle = "Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
-    month = jul,
-    year = "2017",
-    address = "Vancouver, Canada",
-    publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/P17-1052",
-    doi = "10.18653/v1/P17-1052",
-    pages = "562--570",
-    abstract = "This paper proposes a low-complexity word-level deep convolutional neural network (CNN) architecture for text categorization that can efficiently represent long-range associations in text. In the literature, several deep and complex neural networks have been proposed for this task, assuming availability of relatively large amounts of training data. However, the associated computational complexity increases as the networks go deeper, which poses serious challenges in practical applications. Moreover, it was shown recently that shallow word-level CNNs are more accurate and much faster than the state-of-the-art very deep nets such as character-level CNNs even in the setting of large training data. Motivated by these findings, we carefully studied deepening of word-level CNNs to capture global representations of text, and found a simple network architecture with which the best accuracy can be obtained by increasing the network depth without increasing computational cost by much. We call it deep pyramid CNN. The proposed model with 15 weight layers outperforms the previous best models on six benchmark datasets for sentiment classification and topic categorization.",
-}
-
-@article{DBLP:journals/corr/ConneauSBL16,
-  author    = {Alexis Conneau and
-               Holger Schwenk and
-               Lo{\"{\i}}c Barrault and
-               Yann LeCun},
-  title     = {Very Deep Convolutional Networks for Natural Language Processing},
-  journal   = {CoRR},
-  volume    = {abs/1606.01781},
-  year      = {2016},
-  url       = {http://arxiv.org/abs/1606.01781},
-  archivePrefix = {arXiv},
-  eprint    = {1606.01781},
-  timestamp = {Mon, 13 Aug 2018 16:48:49 +0200},
-  biburl    = {https://dblp.org/rec/journals/corr/ConneauSBL16.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
+} 
 
 @article{DBLP:journals/corr/OSheaN15,
   author    = {Keiron O'Shea and
@@ -898,4 +866,123 @@ abstract = {Sentiment analysis and opinion mining is the field of study that ana
   booktitle={Proceedings of the 2017 conference on empirical methods in natural language processing},
   pages={540--546},
   year={2017}
+}
+
+@article{conneau2016very,
+  title={Very deep convolutional networks for text classification},
+  author={Conneau, Alexis and Schwenk, Holger and Barrault, Lo{\"\i}c and Lecun, Yann},
+  journal={arXiv preprint arXiv:1606.01781},
+  year={2016}
+}
+
+@article{liu2016recurrent,
+  title={Recurrent neural network for text classification with multi-task learning},
+  author={Liu, Pengfei and Qiu, Xipeng and Huang, Xuanjing},
+  journal={arXiv preprint arXiv:1605.05101},
+  year={2016}
+}
+
+@article{dieng2016topicrnn,
+  title={Topicrnn: A recurrent neural network with long-range semantic dependency},
+  author={Dieng, Adji B and Wang, Chong and Gao, Jianfeng and Paisley, John},
+  journal={arXiv preprint arXiv:1611.01702},
+  year={2016}
+}
+
+@misc{miyato2017adversarial,
+      title={Adversarial Training Methods for Semi-Supervised Text Classification}, 
+      author={Takeru Miyato and Andrew M. Dai and Ian Goodfellow},
+      year={2017},
+      eprint={1605.07725},
+      archivePrefix={arXiv},
+      primaryClass={stat.ML}
+}
+
+@misc{yang2020survey,
+      title={A Survey of Deep Learning Techniques for Neural Machine Translation}, 
+      author={Shuoheng Yang and Yuxin Wang and Xiaowen Chu},
+      year={2020},
+      eprint={2002.07526},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+@misc{sutskever2014sequence,
+      title={Sequence to Sequence Learning with Neural Networks}, 
+      author={Ilya Sutskever and Oriol Vinyals and Quoc V. Le},
+      year={2014},
+      eprint={1409.3215},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+@misc{zhou2016deep,
+      title={Deep Recurrent Models with Fast-Forward Connections for Neural Machine Translation}, 
+      author={Jie Zhou and Ying Cao and Xuguang Wang and Peng Li and Wei Xu},
+      year={2016},
+      eprint={1606.04199},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+@misc{wu2016googles,
+      title={Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation}, 
+      author={Yonghui Wu and Mike Schuster and Zhifeng Chen and Quoc V. Le and Mohammad Norouzi and Wolfgang Macherey and Maxim Krikun and Yuan Cao and Qin Gao and Klaus Macherey and Jeff Klingner and Apurva Shah and Melvin Johnson and Xiaobing Liu and Łukasz Kaiser and Stephan Gouws and Yoshikiyo Kato and Taku Kudo and Hideto Kazawa and Keith Stevens and George Kurian and Nishant Patil and Wei Wang and Cliff Young and Jason Smith and Jason Riesa and Alex Rudnick and Oriol Vinyals and Greg Corrado and Macduff Hughes and Jeffrey Dean},
+      year={2016},
+      eprint={1609.08144},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+@misc{bapna2018training,
+      title={Training Deeper Neural Machine Translation Models with Transparent Attention}, 
+      author={Ankur Bapna and Mia Xu Chen and Orhan Firat and Yuan Cao and Yonghui Wu},
+      year={2018},
+      eprint={1808.07561},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+@misc{wang2019learning,
+      title={Learning Deep Transformer Models for Machine Translation}, 
+      author={Qiang Wang and Bei Li and Tong Xiao and Jingbo Zhu and Changliang Li and Derek F. Wong and Lidia S. Chao},
+      year={2019},
+      eprint={1906.01787},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+@inproceedings{kalchbrenner2013recurrent,
+  title={Recurrent continuous translation models},
+  author={Kalchbrenner, Nal and Blunsom, Phil},
+  booktitle={Proceedings of the 2013 conference on empirical methods in natural language processing},
+  pages={1700--1709},
+  year={2013}
+}
+
+@misc{gehring2017convolutional,
+      title={A Convolutional Encoder Model for Neural Machine Translation}, 
+      author={Jonas Gehring and Michael Auli and David Grangier and Yann N. Dauphin},
+      year={2017},
+      eprint={1611.02344},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+@misc{dai2019transformerxl,
+      title={Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context}, 
+      author={Zihang Dai and Zhilin Yang and Yiming Yang and Jaime Carbonell and Quoc V. Le and Ruslan Salakhutdinov},
+      year={2019},
+      eprint={1901.02860},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+
+@misc{jozefowicz2016exploring,
+      title={Exploring the Limits of Language Modeling}, 
+      author={Rafal Jozefowicz and Oriol Vinyals and Mike Schuster and Noam Shazeer and Yonghui Wu},
+      year={2016},
+      eprint={1602.02410},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
 }
