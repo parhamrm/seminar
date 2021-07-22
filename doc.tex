@@ -5,6 +5,7 @@
 \usepackage{hyperref}
 \usepackage{xepersian}
 \usepackage{graphicx}
+\usepackage[perpage]{footmisc}
 
 \graphicspath{ {./assets/} }
 
@@ -386,9 +387,14 @@ NLP
 Language  Modeling  (LM)  is  a  task  central  to  NaturalLanguage Processing (NLP) and Language Understanding.Models which can accurately place distributions over sen-tences not only encode complexities of language such asgrammatical structure, but also distill a fair amount of in-formation  about  the  knowledge  that  a  corpora  may  con-tain. Indeed, models that are able to assign a low probabil-ity to sentences that are grammatically correct but unlikelymay help other tasks in fundamental language understand-ing  like  question  answering,  machine  translation,  or  textsummarization.
 \cite{jozefowicz2016exploring}
 
+\subsubsection{Named Entity Recognition}
+wqefwef
+
+\subsubsection{Sequence Labeling}
+
 \subsection{خلاصه سازی متن}
 
-خلاصه سازی متن\footnote{\lr{Text Summation}}
+خلاصه سازی متن\footnote{\lr{Text Summarization}}
 روشی است که در بسیاری از کاربرد‌های متن کاوی به آن نیاز است تا بتوانند با استفاده از خلاصه‌ی یک متن بلند
 یا تعدادی متن به مروری اجمالی دست یافت.
 
@@ -863,8 +869,8 @@ LSTM
       \caption{مقایسه عملکرد سه مدل حافظه‌ای}
       \label{tab:MemNN-vs-others}
     \end{center}
-\end{small}
-  \end{table}
+    \end{small}
+\end{table}
 
 
 \chapter{کارهای مرتبط}
@@ -954,11 +960,21 @@ forked edges,
         ]
     ]
     [Information extraction
+        [CNN \\
+            \cite{ma2016endtoend} \\
+            \cite{katti2018chargrid}
+        ]
         [Transformers \\
-            \cite{dai2019transformerxl}
+            \cite{dai2019transformerxl} \\\
+            \cite{yang2020xlnet} \\
+            \cite{denk2019bertgrid}
+        ]
+        [LSTM \\
+            \cite{lample2016neural} \\
+            \cite{ma2016endtoend}
         ]
     ]
-    [Text Summation
+    [Text Summarization
     ]
     [Clustering
     ]
@@ -1875,20 +1891,87 @@ transformer
 آن.
 
 این مدل علاوه بر اضافه کردن ارتباطات جدید به شبکه‌ی
-transformer
+\lr{transformer}
 روشی برای حل وابستگی‌های طولانی‌تر ارائه داد و همچنین ساختاری برای نگهداری موقیت بردارها ایجاد نمود. علاوه بر این‌ها
 سرعت این مدل از مدل
-transformer
-اصلی تا حد زیادی بالاتر است. امدل معرفی شده در
+\lr{transformer}
+اصلی تا حد زیادی بالاتر است. مدل معرفی شده در
 مدل سازی زبان\footnote{\lr{Language Modeling}}
 عملکرد بسیار خوبی دارد.
 
+
 \subsection{بررسی چند مقاله}
+
+یکی دیگر از بخش‌های استخراج اطلاعات
+شناخت موجودیت\footnote{\lr{Named Entity Recognition}}
+است. بیشتر روش‌های موجود از روش‌های دستی برای انتخاب ویژگی و شناسایی استفاده می‌کنند. در مقاله
+\cite{lample2016neural}
+شبکه‌ای بر پایه
+\lr{LSTM}
+دوطرفه برای استفاده از شبکه‌های عمیق به جای به دست آوردن ویژگی‌ها به صورت دستی ارائه شده‌است. 
+
+در مقاله‌ی
+\cite{ma2016endtoend}
+یک مدل
+\lr{end-to-end}
+برای
+لیبل گذاری دنباله\footnote{\lr{Sequence Labeling}}
+ارائه شد. این مدل از به هم پیوستن چند شبکه‌ی مختلف که هر کدام ویژگی‌های منحصر به خود را دارند
+تشکیل شده‌است. بخش اول که با داده‌ی ورودی سر و کار دارد یک شبکه
+\lr{CNN}
+است. هدف استفاده از این شبکه دست یابی به نمایش برداری در سطح حروف است. در واقع کلمات ورودی
+به این شبکه به نمایش برداری در سطح حرف تبدیل می‌شوند که ورودی شبکه
+\lr{LSTM}
+را تشکیل می‌دهند.
+سپس این نمایش برداری از حروف با نمایش برداری در سطح کلمات ترکیب می شوند و به شبکه
+\lr{LSTM}
+دو طرفه داده می‌شوند. سپس خروجی شبکه
+\lr{BLSTM}
+به شبکه
+\lr{CRF}
+داده می‌شود. در لیبل گذاری دنباله‌ استفاده از همبستگی لیبل‌های همسایه‌ی یکدیگر می‌تواند کمک شایانی در افزایش دقت مدل
+کند. به همین دلیل استفاده از
+فیلد تصادفی شرطی\footnote{\lr{Conditional Random Field}}
+می‌تواند به مدل کمک کند. 
+
+شبکه‌ی
+\lr{BERT}
+عملکرد خوبی در بسیاری از موارد مربوط به پردازش زبان و گفتار طبیعی دارد. اما استفاده از
+ماسک کردن ورودی\footnote{\lr{Input Masking}}
+می‌تواند سبب عدم دقت مدل به وابستگی‌های بین نقاط ماسک شده شود. در
+\cite{yang2020xlnet}
+مدل
+\lr{XLNet}
+معرفی شده‌است که با استفاده از
+یادگیری تعمیم یافته‌ی خود رگرسیون\footnote{\lr{Gneralized Autoregressive}}
+سعی در حل این مسئله داشته‌اند.
+
+اسناد ممکن است ترکیب بندی\footnote{\lr{Layout}}
+های مختلفی داشته باشند. به عنوان مثال یک سند می‌تواند فقط شامل متن باشد، یا از تصاویر و جداول درون آن استفاده‌
+شده باشد. بدون در نظر گرفتن این چیدمان استخراج اطلاعات از جدول‌ها و غیره کار دشواری است. در
+\cite{denk2019bertgrid}
+با استفاده از
+\lr{BERT}
+و یک
+توری\footnote{\lr{Grid}}
+که در سطح کلمه ساخته می‌شود دقت استخراج اطلاعات در اسنادی که تنها متن خالی نیستند را بالا برده‌است. در
+\cite{katti2018chargrid}
+که یکسال قبل از این مقاله ارائه شده بود نیز از روش توری در سطح حرف و شبکه‌ی کانولوشنال برای
+این مسئله استفاده شده بود. توری گذاری در تصویر
+\ref{fig:grid}
+نمایش داده شده‌است.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{grid}
+    \caption{ سند اصلی در کنار توری شده‌ی آن }
+    \label{fig:grid}
+\end{figure}
 
 \section{روش‌های بر پایه خلاصه سازی متن}
 
 \subsection{بررسی چند مقاله}
-
+    
 \section{روش‌های بر پایه خوشه بندی}
 
 \subsection{بررسی چند مقاله}

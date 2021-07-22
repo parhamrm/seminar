@@ -6,6 +6,8 @@
             "name": "xelatex",
             "command": "xelatex",
             "args": [
+                "-shell-escape",
+                "-interaction=nonstopmode",
                 "-outdir=%OUTDIR%",
                 "%DOC%"
             ],
