@@ -28,18 +28,6 @@
             "tools": [
                 "xelatex"
             ]
-        },
-        {
-            "name": "bibtex",
-            "tools": [
-                "bibtex"
-            ]
-        },
-        {
-            "name": "xelatex",
-            "tools": [
-                "xelatex"
-            ]
         }
     ]
 }

@@ -3,26 +3,58 @@
 \usepackage[edges]{forest}
 \usepackage{amsmath}
 \usepackage{hyperref}
-\usepackage{xepersian}
 \usepackage{graphicx}
 \usepackage[perpage]{footmisc}
 \usepackage{multirow}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{xepersian}
 
 \graphicspath{ {./assets/} }
 
 \settextfont{Bahij Nazanin}
 \bibliographystyle{unsrt}
 
-\title{بررسی کاربرد روش‌های یادگیری عمیق در متن‌کاوی}
-\author{پرهام علیمردانیان}
-\date{}
-
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+
+\begin{center}
+
+\includegraphics[width=0.5\textwidth]{tarbiat.jpg}
+\vspace{1.5cm}
+
+\LARGE
+\textbf{بررسی کاربرد روش‌های یادگیری عمیق در متن‌کاوی}
+\vspace{1cm}
+
+\Large
+\textbf{پرهام علیمردانیان}
+\vspace{1.5cm}
+
+\large
+\textbf{استاد راهنما}
+
+\textbf{دکتر محمد صنیعی آباده}
+\vspace{3cm}
+
+\large
+\textbf{بهار ۱۴۰۰}
+
+
+\end{center}
+
+\end{titlepage}
+
 
 \begin{abstract}
+    متن کاوی علمی است که با توجه به حجم زیاد اطلاعات و افزایش روز آن‌ها کاربرد بسیاری در موارد
+    مختلف دارد. علم هوش مصنوعی و البته یادگیری عمیق می‌تواند در به دست‌اوردن و استخراج اطلاعات مفید
+    برای تصمیم گیری‌های کلان و خرد به ما کمک کند. در این مطالعه به بررسی روش‌های یادگیری عمیق
+    در جهت داده کاوی می‌پردازیم.
 
+    \textbf{واژگان کلیدی:}
+    متن کاوی، یادگیری عمیق، استخراج داده.
 \end{abstract}
 
 \tableofcontents
@@ -51,8 +83,14 @@
 در فهم و درک آن می‌شود. همچنین وجود نحوه‌ی صحبت کردن متفاوت پر گروه‌های سنی مختلف و اصطلاحات
 مربوط به صنایع خاص به این ابهامات و پیچیدگی‌ها می‌افزاید\cite{8844895}.
 
-\subsection{انتخاب ویژگی}
 \subsection{زمان}
+
+با توجه به رشد شبکه‌های اجتماعی و همچنین وب‌سایت‌ها و منابع ارسال نظز و فروم‌های مختلف
+داده‌های بساری در هر لحظه در حال اتولید شدن هستند. الگوریتم‌هایی که برای پردازش این اطلاعات استفاده می‌شوند
+قصد دارند تا به مفاهیمی مهم دست یابند تا بتوانند به وسیله‌ی آن‌ها تصمیمات مهمی بگیرند. اما اگر پردازش‌های
+طولانی نیاز باشد تا به این اطلاعات و مفاهیم برسیم، به طور قطع از اطلاعات عقب می‌مانیم. الگوریتم‌های
+این حوزه باید دارای سرعت و دقت بالایی باشند.
+
 \subsection{حجم زیاد داده}
 
 یافتن و نظارت بر متون، نظرات مردم در وب و استخراج اطلاعات موجود در آن‌ها به دلیل افزایش روزافزون
@@ -100,8 +138,22 @@
 ساخت و طراحی الگوریتم‌هایی برای پردازش درست و دقیق این اطلاعات می‌شود. با استفاده از الگوریتم‌های تولید شده می‌توان از
 اطلاعات استخراج شده از متون در بخش‌های مختلفی استفاده کرد\cite{DBLP:journals/corr/AllahyariPASTGK17a}.
 
+با توجه به این مسائل، تعدا مقالاتی که دز این زمینه کار می‌کنند روز به روز در حال افزایش است. همان طور
+که در شکل
+\ref{fig:cites}
+مشاهده می‌شود تعداد مقالات متن کاری در سال ۲۰۲۱ رشد چمشگیری داشته‌اند.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\textwidth]{cites}
+    \caption{شبکه عصبی \lr{Feedforward}}
+    \label{fig:cites}
+\end{figure}
 
 \section{ساختار پژوهش}
+
+در این فصل مقدمه‌ای از متن کاوی بیان شد. در فصل دوم به معرفی مفاهیم پایه پرداخته می‌شود. فصل بعد
+مربوط به بررسی کارهای مرتبط می‌باشد و در انتها و در فصل آخر نتیجه گیری و پیشنهاداتی برای بهبود خواهیم داشت.
 
 \chapter{مفاهیم پایه}
 \pagebreak
@@ -177,10 +229,6 @@ GloVe
 یا به اختصار
 \lr{BoW}
 است.
-
-\subsection{\lr{Bag of N-Grams}}
-
-\subsection{Word2Vec}
 
 \subsection{GloVe}
 
@@ -382,16 +430,6 @@ NLP
 این عمل معمولا به عنوان نقطه شروعی برای دیگر الگوریتم‌های متن کاوی استفاده می‌شود. به عنوان مثال استخراج
 موجودیت‌ها و روابط آن‌ها از متن که می‌تواند اطلاعات معنایی مفیدی به ما بدهند یکی از کار‌های صورت گرفته
 در این رویکرد است\cite{DBLP:journals/corr/AllahyariPASTGK17a}.
-
-\subsection{Language Modeling}
-
-Language  Modeling  (LM)  is  a  task  central  to  NaturalLanguage Processing (NLP) and Language Understanding.Models which can accurately place distributions over sen-tences not only encode complexities of language such asgrammatical structure, but also distill a fair amount of in-formation  about  the  knowledge  that  a  corpora  may  con-tain. Indeed, models that are able to assign a low probabil-ity to sentences that are grammatically correct but unlikelymay help other tasks in fundamental language understand-ing  like  question  answering,  machine  translation,  or  textsummarization.
-\cite{jozefowicz2016exploring}
-
-\subsubsection{Named Entity Recognition}
-wqefwef
-
-\subsubsection{Sequence Labeling}
 
 \subsection{خلاصه سازی متن}
 
@@ -874,149 +912,146 @@ LSTM
 \end{table}
 
 
-\chapter{کارهای مرتبط}
+\chapter{تاریخچه پژوهش}
 \pagebreak
 
-% طول متن برای درختواره
-
+\begin{landscape}
 \begin{figure}[!ht]
 \begin{latin}
 \begin{tiny}
 \begin{noindent}
 \begin{forest}
-for tree = { draw, align=center },
-before typesetting nodes={
-    where content={}{coordinate}{},
-},
-forked edges,
-[Text Mining
-    % [Classification
-    %     [Sentiment Analysis
-    %         [Autoencoder \\
-    %             \cite{zhaiEncoder}
-    %         ]
-    %         [CNN \\
-    %             \cite{tang-etal-2015-document} \\
-    %             \cite{dos2014deep} \\
-    %             \cite{wang-etal-2016-combination} \\
-    %             \cite{guggilla-etal-2016-cnn}
-    %         ]
-    %         [GRU \\
-    %             \cite{tang-etal-2015-document} \\
-    %             \cite{72Zhang_Zhang_Vo_2016}
-    %         ]
-    %         [LSTM \\
-    %             \cite{tang-etal-2015-document} \\
-    %             \cite{xu2016cached} \\
-    %             \cite{yin-etal-2017-document} \\
-    %             \cite{zhou-etal-2016-attention} \\
-    %             \cite{wang-etal-2016-combination} \\
-    %             \cite{guggilla-etal-2016-cnn} \\
-    %             \cite{teng-etal-2016-context} \\
-    %             \cite{70tang-etal-2016-effective} \\
-    %             \cite{71ruder-etal-2016-hierarchical} \\
-    %             \cite{73wang-etal-2016-attention} \\
-    %             \cite{74YANGATT}
-    %             \cite{79ma2017interactive}
-    %         ]
-    %         [MemNN \\
-    %             \cite{ijcai2017-311} \\
-    %             \cite{76tang2016aspect}
-    %         ]
-    %         [RecNN \\
-    %             \cite{68dong-etal-2014-adaptive}
-    %         ]
-    %     ]
-    %     [CNN \\
-    %         \cite{johnson-zhang-2015-effective} \\
-    %         \cite{conneau2016very} \\
-    %         \cite{johnson-zhang-2017-deep}
-    %     ]
-    %     [GRU \\
-    %         \cite{yang-etal-2016-hierarchical} \\
-    %         \cite{dieng2016topicrnn}
-    %     ]
-    %     [LSTM \\
-    %         \cite{graves2005framewise} \\
-    %         \cite{liu2016recurrent} \\
-    %         \cite{miyato2017adversarial} \\
-    %     ]
-    %     [Transformers \\
-    %         \cite{schmidt2020data}
-    %     ]
-    % ]
-    % [Neural Machine Translation
-    %     [CNNN \\
-    %         \cite{kalchbrenner2013recurrent} \\
-    %         \cite{gehring2017convolutional}
-    %     ]
-    %     [LSTM \\
-    %         \cite{wu2016google} \\
-    %         \cite{sutskever2014sequence} \\
-    %         \cite{zhou2016deep} \\
-    %         \cite{wu2016googles}
-    %     ]
-    %     [Transformers \\
-    %         \cite{bapna2018training} \\
-    %         \cite{wang2019learning}
-    %     ]
-    % ]
-    % [Information extraction
-    %     [CNN \\
-    %         \cite{ma2016endtoend} \\
-    %         \cite{katti2018chargrid}
-    %     ]
-    %     [Transformers \\
-    %         \cite{dai2019transformerxl} \\\
-    %         \cite{yang2020xlnet} \\
-    %         \cite{denk2019bertgrid}
-    %     ]
-    %     [LSTM \\
-    %         \cite{lample2016neural} \\
-    %         \cite{ma2016endtoend}
-    %     ]
-    % ]
-    % [Text Summarization
-    %     [GRU \\
-    %         \cite{zhang2018extractive}
-    %     ]
-    %     [LSTM \\
-    %         \cite{song2019abstractive} \\
-    %         \cite{li2017cascaded} \\
-    %         \cite{amplayo2021informative} \\
-    %         \cite{liu2018generating}
-    %     ]
-    %     [CNN \\
-    %         \cite{song2019abstractive} \\
-    %         \cite{ziqiang2015prior}
-    %     ]
-    %     [Transformers \\
-    %         \cite{liu2018generating} \\
-    %         \cite{liu2019hierarchical}
-    %     ]
-    % ]
-    % [Clustering \\
-    %     [CNN \\
-    %         \cite{Xu2017} \\
-    %         \cite{fan2018neural}
-    %     ]
-    %     [LSTM \\
-    %         \cite{zhou2019endtoend} \\
-    %         \cite{fan2018neural}
-    %     ]
-    % ]
-    % [Question Answering
-    % ]
-]
+    for tree = { draw, align=center },
+    before typesetting nodes={
+        where content={}{coordinate}{},
+    },
+    forked edges,
+    [Text Mining
+        [Classification
+            [Sentiment Analysis
+                [CNN \\
+                    \cite{dos2014deep} \\
+                    \cite{wang-etal-2016-combination} \\
+                    \cite{guggilla-etal-2016-cnn}
+                ]
+                [GRU \\
+                    \cite{72Zhang_Zhang_Vo_2016}
+                ]
+                [LSTM \\
+                    \cite{xu2016cached} \\
+                    \cite{yin-etal-2017-document} \\
+                    \cite{zhou-etal-2016-attention} \\
+                    \cite{wang-etal-2016-combination} \\
+                    \cite{guggilla-etal-2016-cnn} \\
+                    \cite{teng-etal-2016-context} \\
+                    \cite{70tang-etal-2016-effective} \\
+                    \cite{71ruder-etal-2016-hierarchical} \\
+                    \cite{73wang-etal-2016-attention} \\
+                    \cite{74YANGATT} \\
+                    \cite{79ma2017interactive}
+                ]
+                [MemNN \\
+                    \cite{ijcai2017-311} \\
+                    \cite{76tang2016aspect}
+                ]
+                [RecNN \\
+                    \cite{68dong-etal-2014-adaptive}
+                ]
+            ]
+            [CNN \\
+                \cite{johnson-zhang-2015-effective} \\
+                \cite{conneau2016very} \\
+                \cite{johnson-zhang-2017-deep}
+            ]
+            [GRU \\
+                \cite{yang-etal-2016-hierarchical} \\
+                \cite{dieng2016topicrnn}
+            ]
+            [LSTM \\
+                \cite{graves2005framewise} \\
+                \cite{liu2016recurrent} \\
+                \cite{miyato2017adversarial} \\
+            ]
+            [Transformers \\
+                \cite{schmidt2020data}
+            ]
+        ]
+        [Neural Machine Translation
+            [CNNN \\
+                \cite{kalchbrenner2013recurrent} \\
+                \cite{gehring2017convolutional}
+            ]
+            [LSTM \\
+                \cite{wu2016google} \\
+                \cite{sutskever2014sequence} \\
+                \cite{zhou2016deep} \\
+                \cite{wu2016googles}
+            ]
+            [Transformers \\
+                \cite{bapna2018training} \\
+                \cite{wang2019learning}
+            ]
+        ]
+        [Information extraction
+            [CNN \\
+                \cite{ma2016endtoend} \\
+                \cite{katti2018chargrid}
+            ]
+            [Transformers \\
+                \cite{dai2019transformerxl} \\
+                \cite{yang2020xlnet} \\
+                \cite{denk2019bertgrid}
+            ]
+            [LSTM \\
+                \cite{lample2016neural} \\
+                \cite{ma2016endtoend}
+            ]
+        ]
+        [Text Summarization
+            [GRU \\
+                \cite{zhang2018extractive}
+            ]
+            [LSTM \\
+                \cite{song2019abstractive} \\
+                \cite{li2017cascaded} \\
+                \cite{amplayo2021informative} \\
+                \cite{liu2018generating}
+            ]
+            [CNN \\
+                \cite{song2019abstractive} \\
+                \cite{ziqiang2015prior}
+            ]
+            [Transformers \\
+                \cite{liu2018generating} \\
+                \cite{liu2019hierarchical}
+            ]
+        ]
+        [Clustering \\
+            [CNN \\
+                \cite{Xu2017} \\
+                \cite{fan2018neural}
+            ]
+            [LSTM \\
+                \cite{zhou2019endtoend} \\
+                \cite{fan2018neural}
+            ]
+        ]
+    ]
 \end{forest}
 \end{noindent}
 \end{tiny}
 \end{latin}
 \end{figure}
+\end{landscape}
 
 \pagebreak
 
 \section{مقدمه}
+
+دراین بخش به بررسی روش‌های ارائه شده با رویکردها و شبکه‌های مختلف پرداخته می‌شود.
+مدل‌های ارائه شده در این بخش با توجه به سال ارائه‌ی مقاله و همچنین تعداد نفراتی که از مقالات استفاده کرده‌اند
+یا به صورت مستقیم یا در بخش بررسی چند مقاله مرور می‌شوند. همچنین این دو معیار میزان پرداختن به مقالات را نیز تعیین
+می‌کنند.
 
 \section{روش‌های بر پایه رویکرد طبقه بندی متن}
 
@@ -2350,30 +2385,259 @@ transformer
 \lr{feed-back}
 هایی وجود دارند که مدل با استفاده از ان‌ها خود را بهبود می‌بخشد.
 
-\section{روش‌های بر پایه جواب دادن به سوال}
-
-\subsection{بررسی چند مقاله}
-
 \chapter{جمع‌بندی و نتیجه‌گیری}
 \pagebreak
 \section{مقدمه}
 
-\section{data}
+در این بخش با توجه به مسائل و مدل‌های یررسی شده در فصل قبل به جمع بندی و همچنین ارائه پیشنهاداتی برای
+امکان بهتر شدن مدل‌ها پرداخته می‌شود. همان طور که در فصل پیش مشاهده شد، متن کاوی رویکردهای مختلفی را
+شامل می‌شود و هر کدام از این رویکرد‌ها روش‌های متعددی دارند. از میان این روش‌ها تعدادی از روش‌های مبتنی
+بر یادگیری عمیق بررسی شدند که به ما دید مناسبی برای بررسی و ارائه نظر می‌دهد.
 
-\begin{table}[!ht]
+\section{جمع بندی و ارائه پیشنهاد}
+
+در اکثر روش‌هایی که معرفی شد از شبکه‌های
+\lr{RNN}
+یا به طور مستقیم یا در بخشی از مدل استفاده شد. همان طور که جدول
+\ref{fig:dist}
+نشان می‌دهد، روش‌های مبتنی بر
+\lr{RNN}
+به خصوص
+\lr{LSTM}
+جایگاه ویزه‌ای در پردازش زبان و گفتار طبیعی و متن کاوی دارند.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\textwidth]{dist}
+    \caption{پراکندگی شبکه‌های استفاده شده}
+    \label{fig:dist}
+\end{figure}
+
+به راحتی می‌توان به این موضوع دست یافت که شبکه‌های
+\lr{LSTM}
+عملکرد خوبی در این زمینه دارند و این مسئله سبب استفاده‌ی پر تکرار از آن‌ها شده‌است.
+
+با توجه به مقاله‌های بررسی شده می‌توان دریافت که شبکه‌های
+\lr{RNN}
+دو طرفه بهتر قادرند تا نمایشی از متن ورودی به دست آوند. همچنین بنا بر میزان اهمیت وابستگی‌های متن
+می‌توان یکی از سه مدل
+\lr{CNN}
+،
+\lr{LSTM}
+و یا
+\lr{Transformer}
+را انتخاب کرد که به ترتیب از وابستگی‌‌های کوتاه تا بلند را بررسی می‌کنند.
+
+در صورتی که بخش‌های ورودی همه از اهمیت یکسانی برخوردار نیستند، مکانیزم توجه به خوبی خود را نشان می‌دهد.
+به عنوان مثال در امر خلاصه سازی متن که می‌خواهیم قسمت‌های مهم متن را انتخاب کنیم، استفاده از مکانیزم توجه
+سبب تمرکز بهتر مدل می شود. همچنین در صورتی که بردار ورودی ترکیبی از نمایش‌های مختلف به عنوان مثال
+ترکیب نمایش در سطح کلمه و حرف باشد استفاده از مکانیزم توجه موثر است.
+
+شبکه‌های
+\lr{CNN}
+وابستگی‌های محلی را به خوبی به دست می‌اوردن اما مسئله‌ی مهم هنگام استفاده از ان‌ها انتخاب دقیق اندازه و سایز کرنل‌
+می‌باشد. باید دقت شود که در صورت کوچک بودن آن اطلاعات از دست می‌رود و در صورت بزرگ بودن
+مدل بسیار بزرگ می‌شود و یادگیری آن کاری دشوار خواهد بود.
+
+هر چه در سال‌ها رو به جلو می‌رویم استفاده از
+\lr{Transformer} 
+ها محبوبیت پیدا می‌کند. این مدل‌ها که بر پایه‌ی مکانیزم توجه و یادگیری انتقالی بنا شده‌اند، قدرت خوبی در پردازش متن از
+خود نشان داده‌اند. به خصوص مدل
+\lr{BERT}
+و دیگر مدل‌های بر پایه و با الهام از آن.
+
+ساختار سلسله مراتبی مدل‌ها با توجه به این که ساختار متون نیز چنین است در برخی مدل‌ها کمک شایانی به
+بالا رفتن دقت کرده‌است. می‌توان از این ساختار بهره گرفت و با اسفتاده از آن مدل‌های بهتر و با دقت بیشتری تولید کرد.
+
+برای بهبود فرایندهای مربوط به متن کاوی پییشنهاد می‌شود استفاده از روش‌های بر پایه مکانیزم توجه افزایش یابد،
+همچنین استفاده از شبکه‌های دو طرفه می‌تواند به دقت مدل کمک کند. در مسائل پیچیده تر
+\lr{ensemble learning}
+می‌تواند بسیار موثر باشد. ترکیب سه مدل برتر گفته شده ممکن است سبب بالاتر رفتن دقت مدل‌ها شود.
+در ادامه نیز جدولی از مدل‌های بررسی شده آمده است که بسیاری از نتیجه گیری‌های انجام شده بر اساس آن می‌باشد.
+
+\pagebreak
+
 \begin{tiny}
-\begin{center}
-   
-    \caption{مقایسه عملکرد مدل معرفی شده با شبکه‌های دیگر}
-    \label{tab:aaaa}
-\end{center}
-\end{tiny}
-\end{table}
-
+\begin{latin}
+    \begin{longtable}{|c|c|c|c|c|c|cc|}
+        \hline
+        Paper & Year & Network(s) & Attention & Information & Dataset(s) & Metric(s) & Score \\ \hline
+        \multicolumn{8}{|c|}{Classificaion}                                                                                                                                                                                                                                                                                                                                                                                                                                        \\ \hline
+        \multirow{2}{*}{\cite{johnson-zhang-2015-effective}} & \multirow{2}{*}{2015} & \multirow{2}{*}{CNN}              & \multirow{2}{*}{-}                      & \multirow{2}{*}{BOW}                                                                                   & \multirow{2}{*}{RCV1}                 & \multicolumn{1}{c|}{Micro-F}                                                                                                       & 84.0   \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{Macro-F}                                                                                                       & 64.8   \\ \hline
+        \multirow{6}{*}{\cite{yang-etal-2016-hierarchical}}  & \multirow{6}{*}{2016} & \multirow{6}{*}{GRU}              & \multirow{6}{*}{Hierarchical Attention} & \multirow{6}{*}{-}                                                                                     & Yelp 2013                             & \multicolumn{1}{c|}{\multirow{6}{*}{Accuracy}}                                                                                     & 68.2   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Yelp 2014                             & \multicolumn{1}{c|}{}                                                                                                              & 70.5   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Yelp 2015                             & \multicolumn{1}{c|}{}                                                                                                              & 71.0   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & IMDB                                  & \multicolumn{1}{c|}{}                                                                                                              & 49.4   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Yahoo Answer                          & \multicolumn{1}{c|}{}                                                                                                              & 75.8   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Amazon                                & \multicolumn{1}{c|}{}                                                                                                              & 63.6   \\ \hline
+        \multirow{6}{*}{\cite{conneau2016very}}              & \multirow{6}{*}{2016} & \multirow{6}{*}{CNN}              & \multirow{6}{*}{-}                      & \multirow{6}{*}{Residual Connections}                                                                  & AG’s news                             & \multicolumn{1}{c|}{\multirow{6}{*}{Error}}                                                                                        & 8.73   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Sogou news                            & \multicolumn{1}{c|}{}                                                                                                              & 3.36   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & DBPedia                               & \multicolumn{1}{c|}{}                                                                                                              & 1.29   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Yelp                                  & \multicolumn{1}{c|}{}                                                                                                              & 35.74  \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Yahoo Answers                         & \multicolumn{1}{c|}{}                                                                                                              & 26.57  \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Amazon Review                         & \multicolumn{1}{c|}{}                                                                                                              & 37.00  \\ \hline
+        \cite{graves2005framewise}                           & 2005                  & Bi-LSTM                           & -                                       & -                                                                                                      & TIMIT                                 & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 70.2   \\ \hline
+        \multirow{4}{*}{\cite{liu2016recurrent}}             & \multirow{4}{*}{2016} & \multirow{4}{*}{LSTM}             & \multirow{4}{*}{-}                      & \multirow{4}{*}{-}                                                                                     & SST-1                                 & \multicolumn{1}{c|}{\multirow{4}{*}{Accuracy}}                                                                                     & 49.6   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & SST-2                                 & \multicolumn{1}{c|}{}                                                                                                              & 87.9   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & SUBJ                                  & \multicolumn{1}{c|}{}                                                                                                              & 94.1   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & IMDB                                  & \multicolumn{1}{c|}{}                                                                                                              & 91.3   \\ \hline
+        \cite{dieng2016topicrnn}                             & 2016                  & GRU                               & -                                       & Local Dependecies                                                                                      & IMDB                                  & \multicolumn{1}{c|}{Error}                                                                                                         & 6.28   \\ \hline
+        \multirow{5}{*}{\cite{miyato2017adversarial}}        & \multirow{5}{*}{2017} & \multirow{5}{*}{LSTM}             & \multirow{5}{*}{-}                      & \multirow{5}{*}{Adversarial training}                                                                  & IMDB                                  & \multicolumn{1}{c|}{\multirow{5}{*}{Error}}                                                                                        & 5.91   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Elec                                  & \multicolumn{1}{c|}{}                                                                                                              & 5.40   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & RCV1                                  & \multicolumn{1}{c|}{}                                                                                                              & 6.68   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Rotten Tomatoes                       & \multicolumn{1}{c|}{}                                                                                                              & 16.6   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & DBpedia                               & \multicolumn{1}{c|}{}                                                                                                              & 0.76   \\ \hline
+        \cite{guggilla-etal-2016-cnn}                        & 2016                  & LSTM-CNN                          & -                                       & Word2Vec                                                                                               & factual vs. feeling                   & \multicolumn{1}{c|}{F1}                                                                                                            & 79.56  \\ \hline
+        \multirow{3}{*}{\cite{wang-etal-2016-combination}}   & \multirow{3}{*}{2016} & \multirow{3}{*}{LSTM-CNN}         & \multirow{3}{*}{-}                      & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Word2Vec\\ \\ Short Texts\end{tabular}}                     & MR                                    & \multicolumn{1}{c|}{\multirow{3}{*}{Accuracy}}                                                                                     & 81.52  \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & SST-1                                 & \multicolumn{1}{c|}{}                                                                                                              & 51.50  \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & SST-2                                 & \multicolumn{1}{c|}{}                                                                                                              & 89.56  \\ \hline
+        \multirow{3}{*}{\cite{johnson-zhang-2017-deep}}      & \multirow{3}{*}{2017} & \multirow{3}{*}{CNN}              & \multirow{3}{*}{-}                      & \multirow{3}{*}{Pyramid Network}                                                                       & Yelp                                  & \multicolumn{1}{c|}{\multirow{3}{*}{Error}}                                                                                        & 30.58  \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Yahoo News                            & \multicolumn{1}{c|}{}                                                                                                              & 23.90  \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Amazon                                & \multicolumn{1}{c|}{}                                                                                                              & 34.81  \\ \hline
+        \cite{schmidt2020data}                               & 2020                  & Transformer                       & Self-attention                          & BERT                                                                                                   & PubMed                                & \multicolumn{1}{c|}{F1}                                                                                                            & 90.0   \\ \hline
+        \multicolumn{8}{|c|}{Sentiment Analysis}                                                                                                                                                                                                                                                                                                                                                                                                                                \\ \hline
+        \multirow{2}{*}{\cite{68dong-etal-2014-adaptive}}    & \multirow{2}{*}{2014} & \multirow{2}{*}{RecNN}            & \multirow{2}{*}{-}                      & \multirow{2}{*}{Aspect Base}                                                                           & \multirow{2}{*}{Twitter}              & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 66.3   \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{Macro-F1}                                                                                                      & 65.9   \\ \hline
+        \multirow{2}{*}{\cite{70tang-etal-2016-effective}}   & \multirow{2}{*}{2016} & \multirow{2}{*}{LSTM}             & \multirow{2}{*}{-}                      & \multirow{2}{*}{Aspect Base}                                                                           & \multirow{2}{*}{Twitter}              & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 71.5   \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         & Macro-F1                                                                                               &                                       & \multicolumn{2}{c|}{69.5}                                                                                                                   \\ \hline
+        \cite{71ruder-etal-2016-hierarchical}                & 2016                  & Bi-LSTM                           & -                                       & \begin{tabular}[c]{@{}c@{}}Aspect Base\\ \\ Hierarchical\end{tabular}                                  & SemEval-2016                          & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 84.8   \\ \hline
+        \multirow{2}{*}{\cite{72Zhang_Zhang_Vo_2016}}     & \multirow{2}{*}{2016} & \multirow{2}{*}{Bi-GRU}           & \multirow{2}{*}{-}                      & \multirow{2}{*}{Aspect Base}                                                                           & \multirow{2}{*}{MPQA}                 & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 71.96  \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{F1}                                                                                                            & 69.55  \\ \hline
+        \multirow{2}{*}{\cite{74YANGATT}}                    & \multirow{2}{*}{2017} & \multirow{2}{*}{LSTM}             & \multirow{2}{*}{Attention Base}         & \multirow{2}{*}{Aspect Base}                                                                           & \multirow{2}{*}{Twitter conversation} & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 72.6   \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{F1}                                                                                                            & 72.2   \\ \hline
+        \cite{79ma2017interactive}                           & 2017                  & LSTM                              & Attention Base                          & Aspect Base                                                                                            & SemEval 2014                          & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 74.1   \\ \hline
+        \cite{73wang-etal-2016-attention}                    & 2016                  & LSTM                              & Attention Base                          & Aspect Base                                                                                            & SemEval 2014                          & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 70.2   \\ \hline
+        \cite{76tang2016aspect}                              & 2016                  & MemmNN                            & Attention Base                          & Aspect Base                                                                                            & SemEval 2014                          & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 76.58  \\ \hline
+        \multirow{2}{*}{\cite{dos2014deep}}                  & \multirow{2}{*}{2014} & \multirow{2}{*}{CNN}              & \multirow{2}{*}{-}                      & \multirow{2}{*}{Short Texts}                                                                           & SSTb                                  & \multicolumn{1}{c|}{\multirow{2}{*}{Accuracy}}                                                                                     & 48.3   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & STS                                   & \multicolumn{1}{c|}{}                                                                                                              & 86.4   \\ \hline
+        \multirow{6}{*}{\cite{xu2016cached}}                 & \multirow{6}{*}{2016} & \multirow{6}{*}{Bi-LSTM}          & \multirow{6}{*}{-}                      & \multirow{6}{*}{Caching}                                                                               & \multirow{2}{*}{IMDB}                 & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 46.2   \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{MSE}                                                                                                           & 2.112  \\ \cline{6-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & \multirow{2}{*}{Yelp 2014}            & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 61.9   \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{MSE}                                                                                                           & 0.496  \\ \cline{6-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & \multirow{2}{*}{Yelp 2013}            & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 59.8   \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{MSE}                                                                                                           & 0.549  \\ \hline
+        \multirow{4}{*}{\cite{yin-etal-2017-document}}       & \multirow{4}{*}{2017} & \multirow{4}{*}{LSTM}             & \multirow{4}{*}{Attention Base}         & \multirow{4}{*}{Hierarchical Model}                                                                    & \multirow{2}{*}{TripAdvisor}          & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 46.65  \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{MSE}                                                                                                           & 1.084  \\ \cline{6-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & \multirow{2}{*}{BeerAdvocate}         & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 38.25  \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{MSE}                                                                                                           & 1.749  \\ \hline
+        \cite{zhou-etal-2016-attention}                      & 2016                  & LSTM                              & Attention Base                          & Hierarchical Model                                                                                     & NLP\&CC 2013                          & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 82.4   \\ \hline
+        \cite{ijcai2017-311}                                 & 2017                  & MemNN                             & -                                       & Transfer Learning                                                                                      & Amazon reviews                        & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 83.8   \\ \hline
+        \multirow{2}{*}{\cite{teng-etal-2016-context}}       & \multirow{2}{*}{2016} & \multirow{2}{*}{Bi-LSTM}          & \multirow{2}{*}{-}                      & \multirow{2}{*}{Context Sensitive}                                                                     & Twitter                               & \multicolumn{1}{c|}{\multirow{2}{*}{Accuracy}}                                                                                     & 88.0   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & SST                                   & \multicolumn{1}{c|}{}                                                                                                              & 86.22  \\ \hline
+        \cite{akhtar2017multilayer}                          & 2017                  & LSTM-GRU-CNN                      & -                                       & \begin{tabular}[c]{@{}c@{}}Financial Markets\\ \\ Ensemble Larning\end{tabular}                        & SemEval 2017                          & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 79.15  \\ \hline
+        \multicolumn{8}{|c|}{Machine Translation}                                                                                                                                                                                                                                                                                                                                                                                                                                         \\ \hline
+        \cite{sutskever2014sequence}                         & 2014                  & LSTM                              & -                                       & -                                                                                                      & WMT 2014                              & \multicolumn{1}{c|}{BLEU}                                                                                                          & 36.5   \\ \hline
+        \cite{wu2016googles}                                 & 2016                  & LSTM                              & Attention Mecanism                      & Parallel Training                                                                                      & WMT 2014                              & \multicolumn{1}{c|}{BLEU}                                                                                                          & 38.39  \\ \hline
+        \multirow{4}{*}{\cite{kalchbrenner2013recurrent}}    & \multirow{4}{*}{2013} & \multirow{4}{*}{CNN}              & \multirow{4}{*}{-}                      & \multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}One of the firsts to\\ use CNN\end{tabular}}                & WMT-NT 2009                           & \multicolumn{1}{c|}{\multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}Average of the\\ sum of the\\ cross-entropy\\ errors\end{tabular}}} & 86     \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & WMT-NT 2010                           & \multicolumn{1}{c|}{}                                                                                                              & 77     \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & WMT-NT 2011                           & \multicolumn{1}{c|}{}                                                                                                              & 76     \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & WMT-NT 2012                           & \multicolumn{1}{c|}{}                                                                                                              & 77     \\ \hline
+        \multirow{3}{*}{\cite{gehring2017convolutional}}     & \multirow{3}{*}{2017} & \multirow{3}{*}{CNN}              & \multirow{3}{*}{-}                      & \multirow{3}{*}{-}                                                                                     & WMT 2014                              & \multicolumn{1}{c|}{\multirow{3}{*}{BLEU}}                                                                                         & 35.7   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & WMT 2015                              & \multicolumn{1}{c|}{}                                                                                                              & 24.2   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & WMT 2016                              & \multicolumn{1}{c|}{}                                                                                                              & 27.8   \\ \hline
+        \cite{bapna2018training}                             & 2018                  & Transformer                       & Attention Mechanism                     & Residual Connections                                                                                   & WMT 2015                              & \multicolumn{1}{c|}{BLEU}                                                                                                          & 27.9   \\ \hline
+        \multirow{2}{*}{\cite{wang2019learning}}             & \multirow{2}{*}{2019} & \multirow{2}{*}{Transformer}      & \multirow{2}{*}{Attention Mechanism}    & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Residual Connections\\ \\ Deeper Network\end{tabular}}      & NIST 2012                             & \multicolumn{1}{c|}{\multirow{2}{*}{BLEU}}                                                                                         & 52.11  \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & WMT 2018                              & \multicolumn{1}{c|}{}                                                                                                              & 27.4   \\ \hline
+        \multicolumn{8}{|c|}{Information Extraction}                                                                                                                                                                                                                                                                                                                                                                                                                                      \\ \hline
+        \multirow{5}{*}{\cite{dai2019transformerxl}}         & \multirow{5}{*}{2019} & \multirow{5}{*}{Transformer}      & \multirow{5}{*}{Attention Mechanism}    & \multirow{5}{*}{\begin{tabular}[c]{@{}c@{}}Recurrence Connections\\ \\ Longer Dependency\end{tabular}} & WikiText-103                          & Perplexity                                                                                                                         & 18.3   \\ \cline{6-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & enwik8                                & BPC                                                                                                                                & 0.99   \\ \cline{6-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & text8                                 & BPC                                                                                                                                & 1.08   \\ \cline{6-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & One Billion Word                      & Perplexity                                                                                                                         & 21.8   \\ \cline{6-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Penn Treebank                         & Perplexity                                                                                                                         & 54.44  \\ \hline
+        \cite{lample2016neural}                              & 2016                  & Bi-LSTM                           & -                                       & -                                                                                                      & CoNLL-2003                            & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 90.94  \\ \hline
+        \cite{ma2016endtoend}                                & 2016                  & Bi-LSTIM-CNN                      & -                                       & -                                                                                                      & CoNLL-2003                            & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 91.35  \\ \hline
+        \multirow{3}{*}{\cite{yang2020xlnet}}                & \multirow{3}{*}{2020} & \multirow{3}{*}{Transformer}      & \multirow{3}{*}{Attention Mechanism}    & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}BERT\\ \\ Gneralized Autoregressive\end{tabular}}           & RACE                                  & \multicolumn{1}{c|}{\multirow{3}{*}{Accuracy}}                                                                                     & 85.4   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & SQuAD2.0                              & \multicolumn{1}{c|}{}                                                                                                              & 87.926 \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & SQuAD1.1                              & \multicolumn{1}{c|}{}                                                                                                              & 89.898 \\ \hline
+        \cite{denk2019bertgrid}                              & 2019                  & Transformer                       & Attention Mechanism                     & \begin{tabular}[c]{@{}c@{}}BERT\\ \\ Grid\end{tabular}                                                 & Scanned Data                          & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 64.21  \\ \hline
+        \cite{katti2018chargrid}                             & 2018                  & CNN                               & -                                       & Grid                                                                                                   & Scanned Data                          & \multicolumn{1}{c|}{Accuracy}                                                                                                      & 61.76  \\ \hline
+        \multicolumn{8}{|c|}{Text Summarization}                                                                                                                                                                                                                                                                                                                                                                                                                                       \\ \hline
+        \multirow{2}{*}{\cite{song2019abstractive}}          & \multirow{2}{*}{2019} & \multirow{2}{*}{LSTM-CNN}         & \multirow{2}{*}{-}                      & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Abstractive\\ \\ Endoder-Decoder Structure\end{tabular}}    & \multirow{2}{*}{CNN}                  & \multicolumn{1}{c|}{ROUGE-1}                                                                                                       & 34.9   \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-2}                                                                                                       & 17.8   \\ \hline
+        \multirow{3}{*}{\cite{liu2018generating}}            & \multirow{3}{*}{2018} & \multirow{3}{*}{LSTM-Transformer} & \multirow{3}{*}{Attention Mechanism}    & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Abstractive\\ \\ Extractive\end{tabular}}                   & Wikipedia                             & \multicolumn{1}{c|}{\multirow{3}{*}{ROUGE-1 F1}}                                                                                   & 43     \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Diseases                              & \multicolumn{1}{c|}{}                                                                                                              & 29     \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & American Actors                       & \multicolumn{1}{c|}{}                                                                                                              & 54     \\ \hline
+        \multirow{3}{*}{\cite{zhang2018extractive}}          & \multirow{3}{*}{2018} & \multirow{3}{*}{GRU}              & \multirow{3}{*}{-}                      & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Extractive\\ \\ Hierarchical Network\end{tabular}}          & \multirow{3}{*}{DailyMail}   & \multicolumn{1}{c|}{ROUGE-1}                                                                                                       & 26.5   \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-2}                                                                                                       & 11.4   \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-L}                                                                                                       & 15.1   \\ \hline
+        \multirow{6}{*}{\cite{li2017cascaded}}               & \multirow{6}{*}{2017} & \multirow{6}{*}{LSTM}             & \multirow{6}{*}{Attention Base}         & \multirow{6}{*}{Multi Document}                                                                        & \multirow{2}{*}{TAC 2010}             & \multicolumn{1}{c|}{ROUGE-1}                                                                                                       & 0.359  \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-2}                                                                                                       & 0.092  \\ \cline{6-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & \multirow{2}{*}{DUC 2006}             & \multicolumn{1}{c|}{ROUGE-1}                                                                                                       & 0.393  \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-2}                                                                                                       & 0.087  \\ \cline{6-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & \multirow{2}{*}{DUC 2007}             & \multicolumn{1}{c|}{ROUGE-1}                                                                                                       & 0.423  \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-2}                                                                                                       & 0.107  \\ \hline
+        \multirow{3}{*}{\cite{amplayo2021informative}}       & \multirow{3}{*}{2021} & \multirow{3}{*}{Bi-LSTM}          & \multirow{3}{*}{Attention Mechanism}    & \multirow{3}{*}{Multi Document}                                                                        & \multirow{3}{*}{Rotten Tomatoes}      & \multicolumn{1}{c|}{ROUGE-1}                                                                                                       & 22.49  \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-2}                                                                                                       & 7.65   \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-L}                                                                                                       & 18.47  \\ \hline
+        \multirow{6}{*}{\cite{ziqiang2015prior}}             & \multirow{6}{*}{2015} & \multirow{6}{*}{CNN}              & \multirow{6}{*}{-}                      & \multirow{6}{*}{max-over-time pooling}                                                                 & \multirow{2}{*}{DUC 2001}             & \multicolumn{1}{c|}{ROUGE-1}                                                                                                       & 35.98  \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-2}                                                                                                       & 7.89   \\ \cline{6-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & \multirow{2}{*}{DUC 2002}             & \multicolumn{1}{c|}{ROUGE-1}                                                                                                       & 36.63  \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-2}                                                                                                       & 8.97   \\ \cline{6-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & \multirow{2}{*}{DUC 2004}             & \multicolumn{1}{c|}{ROUGE-1}                                                                                                       & 38.91  \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-2}                                                                                                       & 10.07  \\ \hline
+        \multirow{3}{*}{\cite{liu2019hierarchical}}          & \multirow{3}{*}{2019} & \multirow{3}{*}{Transformer}      & \multirow{3}{*}{Attention Mechanism}    & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Multi Document\\ \\ Hierarchical Network\end{tabular}}      & \multirow{3}{*}{WikiSum}              & \multicolumn{1}{c|}{ROUGE-1}                                                                                                       & 41.53  \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-2}                                                                                                       & 26.52  \\ \cline{7-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        &                                       & \multicolumn{1}{c|}{ROUGE-L}                                                                                                       & 35.76  \\ \hline
+        \multicolumn{8}{|c|}{Clustering}                                                                                                                                                                                                                                                                                                                                                                                                                                            \\ \hline
+        \multirow{3}{*}{\cite{Xu2017}}                       & \multirow{3}{*}{2017} & \multirow{3}{*}{CNN}              & \multirow{3}{*}{-}                      & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}k-means\\ \\ Self-Taught\\ \\ BOW\end{tabular}}             & SearchSnippets                        & \multicolumn{1}{c|}{\multirow{3}{*}{Accuracy}}                                                                                     & 77.09  \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & StackOverflow                         & \multicolumn{1}{c|}{}                                                                                                              & 51.13  \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & Biomedical                            & \multicolumn{1}{c|}{}                                                                                                              & 43.62  \\ \hline
+        \multirow{2}{*}{\cite{zhou2019endtoend}}             & \multirow{2}{*}{2019} & \multirow{2}{*}{Bi-LSTM}          & \multirow{2}{*}{-}                      & \multirow{2}{*}{End to End}                                                                            & IMDB                                  & \multicolumn{1}{c|}{\multirow{2}{*}{Accuracy}}                                                                                     & 78.1   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & 20-Newsgroup                          & \multicolumn{1}{c|}{}                                                                                                              & 50.8   \\ \hline
+        \multirow{2}{*}{\cite{fan2018neural}}                & \multirow{2}{*}{2018} & \multirow{2}{*}{Bi-LSTM-CNN}      & \multirow{2}{*}{-}                      & \multirow{2}{*}{K-means}                                                                               & SogouCS-long                          & \multicolumn{1}{c|}{\multirow{2}{*}{F1}}                                                                                           & 75.3   \\ \cline{6-6} \cline{8-8} 
+                                                                              &                       &                                   &                                         &                                                                                                        & SogouCS-short                         & \multicolumn{1}{c|}{}                                                                                                              & 80.2   \\ \hline
+    \end{longtable}
 
 \begin{latin}
     \bibliography{bibliography}
 \end{latin}
 
+
+\begin{latin}
+\begin{abstract}
+    Text mining is a subject of science that deals with stream of text data.
+    Deep learning can help gathering and extracting useful information to make
+    critical decisions.
+    In this report we discuss different ideas around text mining and deep learning.
+
+    \textbf{Keywords:}
+    text mining, deep learning, information extraction.
+\end{abstract}
+\end{latin}
+
+\end{latin}
+\end{tiny}
+
+
+
+\begin{latin}
+
+\begin{center}
+
+\includegraphics[width=0.5\textwidth]{tarbiat-en.jpg}
+\vspace{1.5cm}
+
+\LARGE
+\textbf{Applications of deep learning methods in text mining}
+\vspace{1cm}
+
+\Large
+\textbf{Parham Alimardanian}
+\vspace{1.5cm}
+
+\large
+\textbf{استاد راهنما}
+
+\textbf{Dr. Mohammad Saniee Abadeh}
+\vspace{3cm}
+
+\large
+\textbf{Spring 2021}
+
+
+\end{center}
+
+\end{latin}
+
 \end{document}
-% \multirow{3}
