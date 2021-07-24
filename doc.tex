@@ -6,6 +6,7 @@
 \usepackage{xepersian}
 \usepackage{graphicx}
 \usepackage[perpage]{footmisc}
+\usepackage{multirow}
 
 \graphicspath{ {./assets/} }
 
@@ -916,6 +917,7 @@ forked edges,
     %             \cite{71ruder-etal-2016-hierarchical} \\
     %             \cite{73wang-etal-2016-attention} \\
     %             \cite{74YANGATT}
+    %             \cite{79ma2017interactive}
     %         ]
     %         [MemNN \\
     %             \cite{ijcai2017-311} \\
@@ -943,60 +945,68 @@ forked edges,
     %         \cite{schmidt2020data}
     %     ]
     % ]
-    [Neural Machine Translation
-        [CNNN \\
-            \cite{kalchbrenner2013recurrent} \\
-            \cite{gehring2017convolutional}
-        ]
-        [LSTM \\
-            \cite{wu2016google} \\
-            \cite{sutskever2014sequence} \\
-            \cite{zhou2016deep} \\
-            \cite{wu2016googles}
-        ]
-        [Transformers \\
-            \cite{bapna2018training} \\
-            \cite{wang2019learning}
-        ]
-    ]
-    [Information extraction
-        [CNN \\
-            \cite{ma2016endtoend} \\
-            \cite{katti2018chargrid}
-        ]
-        [Transformers \\
-            \cite{dai2019transformerxl} \\\
-            \cite{yang2020xlnet} \\
-            \cite{denk2019bertgrid}
-        ]
-        [LSTM \\
-            \cite{lample2016neural} \\
-            \cite{ma2016endtoend}
-        ]
-    ]
-    [Text Summarization
-        [GRU \\
-            \cite{zhang2018extractive}
-        ]
-        [LSTM \\
-            \cite{song2019abstractive} \\
-            \cite{li2017cascaded} \\
-            \cite{amplayo2021informative} \\
-            \cite{liu2018generating}
-        ]
-        [CNN \\
-            \cite{song2019abstractive} \\
-            \cite{ziqiang2015prior}
-        ]
-        [Transformers \\
-            \cite{liu2018generating} \\
-            \cite{liu2019hierarchical}
-        ]
-    ]
-    [Clustering
-    ]
-    [Question Answering
-    ]
+    % [Neural Machine Translation
+    %     [CNNN \\
+    %         \cite{kalchbrenner2013recurrent} \\
+    %         \cite{gehring2017convolutional}
+    %     ]
+    %     [LSTM \\
+    %         \cite{wu2016google} \\
+    %         \cite{sutskever2014sequence} \\
+    %         \cite{zhou2016deep} \\
+    %         \cite{wu2016googles}
+    %     ]
+    %     [Transformers \\
+    %         \cite{bapna2018training} \\
+    %         \cite{wang2019learning}
+    %     ]
+    % ]
+    % [Information extraction
+    %     [CNN \\
+    %         \cite{ma2016endtoend} \\
+    %         \cite{katti2018chargrid}
+    %     ]
+    %     [Transformers \\
+    %         \cite{dai2019transformerxl} \\\
+    %         \cite{yang2020xlnet} \\
+    %         \cite{denk2019bertgrid}
+    %     ]
+    %     [LSTM \\
+    %         \cite{lample2016neural} \\
+    %         \cite{ma2016endtoend}
+    %     ]
+    % ]
+    % [Text Summarization
+    %     [GRU \\
+    %         \cite{zhang2018extractive}
+    %     ]
+    %     [LSTM \\
+    %         \cite{song2019abstractive} \\
+    %         \cite{li2017cascaded} \\
+    %         \cite{amplayo2021informative} \\
+    %         \cite{liu2018generating}
+    %     ]
+    %     [CNN \\
+    %         \cite{song2019abstractive} \\
+    %         \cite{ziqiang2015prior}
+    %     ]
+    %     [Transformers \\
+    %         \cite{liu2018generating} \\
+    %         \cite{liu2019hierarchical}
+    %     ]
+    % ]
+    % [Clustering \\
+    %     [CNN \\
+    %         \cite{Xu2017} \\
+    %         \cite{fan2018neural}
+    %     ]
+    %     [LSTM \\
+    %         \cite{zhou2019endtoend} \\
+    %         \cite{fan2018neural}
+    %     ]
+    % ]
+    % [Question Answering
+    % ]
 ]
 \end{forest}
 \end{noindent}
@@ -1428,7 +1438,7 @@ LSTM
 در
 \cite{79ma2017interactive}
 مدل
-IAN\footnote{Interactive Attention Network}
+IAN\footnote{\lr{Interactive Attention Network}}
 ارائه شده که توجه آن هم به جنبه و هم به متن نوشته است.
 در این مقاله از دو شبکه بر پایه مکانیزم توجه استفاده شده‌است تا به صورت تعاملی کلمات مهم هدف و کلمات مهم
 کل متن را دریابد.
@@ -1632,7 +1642,7 @@ attention
 نیز با استفده از
 MemNN
 و
-بادگیری انتقالی\footnote{\lr{transfer learning}}
+یادگیری انتقالی\footnote{\lr{transfer learning}}
 به تحلیل عواطف و احساسات در سطح سند پرداخته می‌شود.
 \cite{teng-etal-2016-context}
 نیز با ارائه‌ی مدل
@@ -1781,7 +1791,7 @@ RNN
 CNN
 ها بوده است. اما این مدل از نظر عملکرد در مقابل مدل‌های مبتنی بر
 RNN
-ضعبف‌تر بود. اما نشان داد که می‌توان ساختار را به چه سبکی دگرگون کرد.
+ضعیف‌تر بود. اما نشان داد که می‌توان ساختار را به چه سبکی دگرگون کرد.
 
 در سال ۲۰۱۶ محققیق
 فیسبوک\footnote{\lr{Facebook}}
@@ -1863,7 +1873,7 @@ transformer
 
 برای اینکه مشکل طول وابستگی در جملات در مدل‌های مبتنی بر
 transformer
-حل شود، در این مدل از ارتباطات بازگشتی\footnote{\lr{Reccurence Connections}}
+حل شود، در این مدل از ارتباطات بازگشتی\footnote{\lr{Recurrence Connections}}
 استفاده شده‌است. به این شکل که در زمان اجرا حالت‌های نهان در مدل به عنوان 
 cache
 برای قسمت\footnote{\lr{Segment}} 
@@ -2152,7 +2162,7 @@ transformer
 \cite{li2017cascaded}
 همین کار را انجام می‌دهد. در این مقاله یک مدل بر اساس شبکه‌های
 \lr{RNN}
-ارائه شد. هدف این مدل بررسی ازلاعات برجسته در اسناد از روش نظارت نشده است. 
+ارائه شد. هدف این مدل بررسی اطلاعات برجسته در اسناد از روش نظارت نشده است. 
 در این روش اطلاعات برجسته از جملات تشکیل نمایش برداری را می‌دهند.
 در این روش از مکانیزم توجه برای تمرکز بر بازسازی جملات استفاده شده‌است.
 در واقع مدل پیشنهادی ترکیبی از
@@ -2206,25 +2216,164 @@ transformer
 
 \section{روش‌های بر پایه خوشه بندی}
 
+\subsubsection{\lr{STCC}}
+
+خوشه بندی متون کوتاه به دلیل پراکندگی و گستردگی نمایش متن عملی چالش برانگیز است.
+در
+\cite{Xu2017}
+یک شبکه کلنولوشنال خودآموز\footnote{\lr{Self-Taught}}
+برای این کار معرفی شده‌است که می‌تواند اطلاعات معنایی بیشتر و کاربردی‌تری  را دریافت و پردازش کند.
+در این مدل در ابتدا متن خام با استفاده از یکی از روش‌های کاهش بعد بدون نظارت\footnote{\lr{Unsupervised Dimensionality Reduction}}
+به نمایش دودویی\footnote{\lr{Binary}}
+تبدیل می‌شود سپس به شبکه‌ی کانولوشنال داده می‌شوند تا ویژگی‌های پیچیده‌ی آن‌ها یادگیری شوند.
+سپس با استفاده از یک خوشه بند
+\lr{K-means}
+نمایش خوشه‌ای متون یادگیری می‌شود.
+
+نمایش
+\lr{BOW}
+متن برای این که به شبکه‌ی
+\lr{CNN}
+داده شود با استفاده از یکی از روش‌های کاهش بعد به نمایش دودیی تبدیل شود. این کار دربافت بهتر اطلاعات
+در بخش کانولوشنی مدل می‌شود و به نوعی این بخش را هدایت می‌کند. در نهایت هر متن ورودی به نمایش
+ماتریسی تبدیل می‌شود.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{STCC}
+    \caption{عملکرد مدل STCC}
+    \label{fig:STCC}
+\end{figure}
+
+بخش کانولوشنال از یک لایه کانولوشنال عریض و بعد از آن یک لایه
+\lr{k-max pooling}
+استفاده شده‌است. سپس از یک لایه‌ی کانولوشنی عریض\footnote{\lr{Wide Convolution}}
+به همراه
+\lr{folding}
+که کار آن جمع هر دو سطر بردار ویژگی‌ها است  استفاده شده‌است. لایه‌ی آخر نیز مجدد یک لایه 
+\lr{k-max pooling}
+می‌باشد. در آخر نیز با استفاده از خروجی شبکه، الگوریتم خوشه بندی
+\lr{K-means}
+اجرا می‌شود. در شکل
+\ref{fig:STCC}
+عملکرد این مدل آمده‌است.
+
 \subsection{بررسی چند مقاله}
+در
+\cite{zhou2019endtoend}
+مدلی برای خوشه بندی متون به صورت
+\lr{end-to-end}
+ارائه شد. معمولا اکثز مدل‌ها برای رسیدن به خوشه بندی‌های مناسب این عمل را به چند بخش تقسیم می‌کنند.
+یادگیری نمایش متن\footnote{\lr{Text Representation Learning}}
+و خوشه بندی نمایش یادگیری شده دو بخش اصلی اکثر این مدل‌ها هستند. برخی نیز برای حل مشکل
+پراکندی و گستردگی از مدل‌های بر پایه شبکه‌های عصبی در بخش یادگیری نمایش متن استفاده کردند.
+اما بار هم یک فرایند چند مرحله‌ای انجام می‌شود. که مرحله‌ی بعدی آن عموما
+\lr{K-means}
+است.
+
+در این مقاله روشی بر پایه شبکه‌های عصبی برای یادگیری تماما
+\lr{end-to-end}
+ارائه شده‌است که توامان نمایش متن و خوشه بندی را یادگیری می‌کند. این مدل بر روی دو دیتاست معروف
+\lr{IMDB}
+و
+\lr{20-Newsgroup}
+آزمایش شده‌است.
+
+بیشتر الگوریتم‌های خوشه بندی سعی در حل مسئله به صورت پیمایشی دارند. و هدف آن‌ها این است که بفهمند
+داده‌ی کنونی به کدام خوشه تعلق دارد. اما در این مدل به این سوال که آیا دو نمونه‌ی انتخاب شده به یک
+خوشه‌ی یکسان تعلق دارند پاسخ داده می‌شود.
+
+در این مدل از
+\lr{LSTM}
+دو طرفه برای پردازش داده‌ی ورودی استفاده شده‌است. از این شبکه نمایش متن به دست می‌اید. سپس از یک عملگر
+ماکزیمم استفاده می‌شود. لایه‌ی بعدی یک سافت‌مکس است تا با استفاده از آن از نمایش به دست آمده
+به یک نمایش برداری برسیم.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{e2e}
+    \caption{ساختار مدل خوشه بند \lr{end-to-end}}
+    \label{fig:e2e}
+\end{figure}
+
+سپس از نمایش‌های برداری به دست آمده استفاده می‌شود تا تخمین زد که آیا دو جمله‌ی هب دست آمده به یک
+خوشه تعلق دارند یا خیر. ساغختار مدل در شکل
+\ref{fig:e2e}
+آمده است.
+
+خوشه بندی یکی از عملیات‌های مهم متن کاوی است، این عمل به شکل گسترده در
+بازیابی اطلاعات\footnote{\lr{Information Retrieval}}
+و
+ادغام متن\footnote{\lr{Text Integration}}
+استفاده می‌شود. در مدل‌های جدید و با استفاده از یادگیری عمیق شبکه‌هایی به صورت ترکیبی ارائه می‌شوند که
+یادگیری نمایش و استخراج اطلاعات در آن‌ها بر عهده‌ی شبکه‌های عمیق است و معمولا با استفاده از 
+الگوریتم‌های خوشه بندی کلاسیک اقدام به شناخت خوشه‌ها می‌کنند.
+\cite{fan2018neural}
+با استفاده از مدلی شامل
+شبکه‌های‌
+\lr{LSTM}
+و
+\lr{CNN}
+و همچنین الگوریتم خوشه بندی
+\lr{K-means}
+به انجام عمل خوشه بندی متون با استفاده از شبکه‌های عمیق می‌پردازد. در این مدل اطلاعات به دست امده
+از خوشه بندی به عنوان
+\lr{feed-back}
+به مدل داده می‌شوند که سبب می‌شود مدل در طول زمان خود را بهبود بخشد.
+
+در این مدل متن خام وارد بخش پیش پردازش می‌شود، در این بخش عملیات توکتن سازی انجام می‌شود و همچنین
+\lr{stop words}
+حذف می‌شوند. سپس به لایه‌ی
+\lr{LSTM}
+دو طرفه می‌رسیم. هدف این بخش استخراج اطلاعات معنایی از متون توکن شده است. شبکه‌ی
+\lr{LSTM}
+دو طرفه کاربرد زیادی در مسئله‌های مربوط به متون دارند، در این روش نیز با توجه به کار‌های گذشته از یک
+شبکه‌ی دو طرفه برای به دست آوردن اطلاعات و استخراج آن‌ها استفاده شده‌است.
+
+شبکه‌ی
+\lr{CNN}
+برای دست‌یابی به اطلاعات نهان در متن اصلی استفاده می‌شود. همان طور که گفته شد شبکه‌های کانولوشنال
+با توجه به ساختاری که دارند قابلیت درک بالایی در استخراج اطلاعات و وابستگی‌های محلی دارند. اطلاعات به دست آمده
+توسط لایه قبلی در این لایه پردازش می‌شوند تا با استفاده از این شبکه اطلاعات عمیق‌تری استخراج شوند.
+هنگام کار با
+\lr{CNN}
+ها نکته‌ای که بسیار اهمیت دارد آن است که اندازه و ابعاد کرنل‌ها چه مقداری باشند. اگر کوچک باشند ممکتن است
+سبب از بین رفتن بسیاری از اطلاعات مهم شوند، در مقابل بزرگ بودن ابعاد سبب بالا رفتن تعداد پارامتر‌ها می‌شود که این
+مسئله خود مشکلاتی مثل پیچیدگی مدل،
+\lr{overtrain}
+شدن مدل و همچنین مشکل شدن فرایند یادگیری را حاصل می‌شود.
+
+در مرحله‌ی آخر نیز از الگوریتم
+\lr{K-means}
+استفاده می‌شود تا عملیات خوشه بندی انجام شود. از این خوشه‌های به دست آمده استفاده می‌شود تا مدل را بهینه سازی کرد.
+در واقع
+\lr{feed-back}
+هایی وجود دارند که مدل با استفاده از ان‌ها خود را بهبود می‌بخشد.
 
 \section{روش‌های بر پایه جواب دادن به سوال}
 
 \subsection{بررسی چند مقاله}
 
-\section{ روش‌های چندمنظوره }
-
-\cite{kalchbrenner-etal-2014-convolutional} 3285 2014
-
-\subsection{بررسی چند مقاله}
-
-
 \chapter{جمع‌بندی و نتیجه‌گیری}
 \pagebreak
 \section{مقدمه}
+
+\section{data}
+
+\begin{table}[!ht]
+\begin{tiny}
+\begin{center}
+   
+    \caption{مقایسه عملکرد مدل معرفی شده با شبکه‌های دیگر}
+    \label{tab:aaaa}
+\end{center}
+\end{tiny}
+\end{table}
+
 
 \begin{latin}
     \bibliography{bibliography}
 \end{latin}
 
 \end{document}
+% \multirow{3}
